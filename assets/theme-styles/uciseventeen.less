@@ -1,0 +1,98 @@
+@import 'Bootstrap3-UCI-theme/css/bootstrap3-uci.less';
+
+html {
+	background-color: @gray-lighter;
+}
+body {
+	background-color: #fff;
+}
+
+// HEADINGS //
+@headings-font-weight: bold;
+@font-size-h6: round((@font-size-base * 0.8));	// 13px
+@font-size-h5: round((@font-size-h6 * 1.1));	// 14px
+@font-size-h4: round((@font-size-h5 * 1.2));	// 17px
+@font-size-h3: round((@font-size-h4 * 1.3));	// 22px
+@font-size-h2: round((@font-size-h3 * 1.4));	// 31px
+@font-size-h1: round((@font-size-h2 * 1.5));	// 47px
+
+// ICON LIST //
+.uci-icon-list {
+	list-style: none;
+	padding-left: 0;
+	> li {
+		line-height: 2.5em !important;
+	}
+	i, 
+	span {
+		&.fa {
+			background-color: @gray-light;
+			border: none;
+			border-radius: 16px;
+			color: #fff;
+			display: inline-block;
+			font-size: 18px;
+			height: 32px;
+			line-height: 35px;
+			margin-right: 8px;
+			text-align: center;
+			width: 32px;
+		}
+		&.fa-facebook {background-color: #3a5795;}
+		&.fa-flickr {background-color: #000000;}
+		&.fa-google-plus {background-color: #dd4b39;}
+		&.fa-instagram {background-color: #517fa4;}
+		&.fa-linkedin {background-color: #0077b5;}
+		&.fa-pinterest {background-color: #be0010;}
+		&.fa-reddit {background-color: #ff4500;}
+		&.fa-soundcloud {background-color: #f50;}
+		&.fa-tumblr {background-color: #35465c;}
+		&.fa-twitter {background-color: #55acee;}
+		&.fa-youtube {background-color: #e52d27;}
+	}
+}
+
+// OVERLAYS //
+.media-overlay {
+	height: 100%;
+	position: relative;
+	width: 100%;
+	padding: @grid-gutter-width (@grid-gutter-width / 2);
+	z-index: 1;
+	
+	&.overlay-dark,
+	&.overlay-medium {
+		&, 
+		h1, 
+		h2, 
+		h3, 
+		h4, 
+		h5, 
+		h6 {
+			color: #fff;
+		}
+	}
+	&.overlay-dark {
+		background-color: @overlay-dark;
+	}
+	&.overlay-light {
+		background-color: @overlay-light;
+		color: @gray-dark;
+	}
+	&.overlay-medium {
+		background-color: @overlay-medium;
+		text-shadow: 1px 1px #000;
+		h1, .h1,
+		h2, .h2,
+		h3, .h3 {
+			text-shadow: 2px 2px #000;
+		}
+		
+	}
+	@media screen and (min-width: @screen-sm-min) {
+		padding: (@grid-gutter-width * 1.5) @grid-gutter-width;
+	}
+}
+
+@import "landmarks/landmarks.less";
+@import "content.less";

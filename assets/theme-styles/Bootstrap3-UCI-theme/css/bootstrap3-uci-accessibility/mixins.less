@@ -1,0 +1,32 @@
+// BOOTSTRAP3-UCI-ACCESSIBILTY MIXINS //
+@import '../bootstrap/3.3.4/mixins.less';
+
+// FOCUS //
+.tab-focus() {
+	outline: 4px solid rgb(94, 158, 214);
+	outline-offset: -2px;
+}
+
+// BUTTONS //
+.button-shift(@background; @border) {
+	&:hover,
+	&:focus,
+	&.focus,
+	&:active,
+	&.active,
+	.open > .dropdown-toggle& {
+		background-color: lighten(@background, 10%);
+		border-color: lighten(@border, 12%);
+	}
+}
+
+// LABELS //
+.label-shift(@background) {
+	&[href] {
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: lighten(@background, 10%);
+		}
+	}
+}

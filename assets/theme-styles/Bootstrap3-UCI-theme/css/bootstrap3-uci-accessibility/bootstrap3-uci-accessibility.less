@@ -1,0 +1,95 @@
+// BOOTSTRAP3-UCI-ACCESSIBILTY //
+
+@import '../bootstrap/3.3.4/bootstrap.less';
+@import 'variables.less';
+@import 'mixins.less';
+
+.carousel-control {
+	&:focus {
+		.tab-focus();
+	}
+}
+.dropdown-toggle:focus {
+	.tab-focus();
+}
+.form-control-focus(@color: @input-border-focus) {
+	&:focus {
+		.tab-focus();
+	}
+}
+.navbar-toggle {
+	&:focus {
+		.tab-focus();
+	}
+}
+
+// LINKS //
+a {
+	text-decoration: underline;
+}
+
+// BUTTONS //
+.btn-success {.button-shift(@btn-success-bg; @btn-success-border);}
+.btn-info {.button-shift(@btn-info-bg; @btn-info-border);}
+.btn-warning {.button-shift(@btn-warning-bg; @btn-warning-border);}
+.btn-danger {.button-shift(@btn-danger-bg; @btn-danger-border);}
+
+
+
+// LABELS //
+.label-default, 
+.label-primary {
+	&, 
+	a&:hover,
+	a&:focus,
+	a&:active {
+		color: #fff;
+	}
+}
+.label-success {.label-shift(@label-success-bg);}
+.label-info {.label-shift(@label-info-bg);}
+.label-warning {.label-shift(@label-warning-bg);}
+.label-danger {.label-shift(@label-danger-bg);}
+
+
+// PROGRESS BARS //
+.progress-bar-secondary,
+.progress-bar-success, 
+.progress-bar-info, 
+.progress-bar-warning, 
+.progress-bar-danger {
+	color: @gray-dark;
+}
+
+// CLOSE //
+.close, 
+.close:focus,
+.close:hover {
+	opacity: 1.0;
+}
+
+// CAROUSEL //
+// Lifted from PayPal accessibility plugin. Broken??
+.carousel-inner {
+	& > .item {
+		position: absolute;
+		top: -999999em;
+		display: block;
+		-webkit-transition: 0.6s ease-in-out left;
+		-moz-transition: 0.6s ease-in-out left;
+		-o-transition: 0.6s ease-in-out left;
+		transition: 0.6s ease-in-out left;
+	}
+	& > .active {
+		position: relative;
+		top: 0;
+	}
+	& > .prev, 
+	& > .next {
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}
+
+
