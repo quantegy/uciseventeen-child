@@ -11,6 +11,11 @@ function my_theme_enqueue_styles() {
 }
 
 /**
+ * add support for thumbnails
+ */
+//add_theme_support('post-thumbnails');
+
+/**
  * include our custom sitorigin pagebuilder widgets
  * if the plugin is available
  */
