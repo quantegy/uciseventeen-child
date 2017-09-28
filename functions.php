@@ -1,4 +1,6 @@
 <?php
+require_once 'vendor/autoload.php';
+
 /**
  * Created by Chris Walsh.
  * User: walshcj
@@ -79,6 +81,36 @@ add_filter( 'siteorigin_widgets_widget_folders', 'uciseventeen_so_widgets_widget
 add_filter('cjtl_widget_title', function($title, $instance, $args) {
     return '<h4 class="widget-title">' . $title . '</h4>';
 }, 9, 3);
+
+add_action('widgets_init', 'uciseventeen_child_widgets_init');
+function uciseventeen_child_widgets_init() {
+    if(is_plugin_active('simple-fields/simple_fields.php')) {
+        register_widget(\UCI\Wordpress\Widget\News::class);
+    }
+}
+
+add_filter('simple_fields_contacts_filter', 'testing', 9, 3);
+function testing($contacts, $args, $instance) {
+    if(!empty($contacts)) {
+	    if(!empty($instance['title'])) {
+		    echo '<h4 class="widget-title">' . $instance['title'] . '</h4>';
+	    }
+
+	    echo '<ul class="list-group">';
+
+        foreach ($contacts as $contact) {
+            echo '<li class="list-group-item">';
+            echo '<div>' . $contact['contact_fullname'] . '</div>';
+            echo '<div>' . $contact['contact_phone'] . '</div>';
+            if(!empty($contact['contact_email'])) {
+	            echo '<div>' . $contact['contact_email'] . '</div>';
+            }
+            echo '</li>';
+        }
+
+        echo '</ul>';
+    }
+}
 
 /*function uciseventeen_so_before_content($stuff) {
     return $stuff;

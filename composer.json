@@ -1,0 +1,19 @@
+{
+  "name": "walshcj/uciseventeen-child",
+  "description": "Wordpress child theme for UCI, purposed for news",
+  "minimum-stability": "stable",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "Chirstopher Walsh",
+      "email": "walshcj@uci.edu"
+    }
+  ],
+  "require": {},
+  "repositories": {},
+  "autoload": {
+    "classmap": [
+      "inc/"
+    ]
+  }
+}
