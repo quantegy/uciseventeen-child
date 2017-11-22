@@ -84,7 +84,7 @@ add_filter('cjtl_widget_title', function($title, $instance, $args) {
 
 add_action('widgets_init', 'uciseventeen_child_widgets_init');
 function uciseventeen_child_widgets_init() {
-    if(is_plugin_active('simple-fields/simple_fields.php')) {
+    if(is_plugin_active('simple-fields/simple_fields.php') || is_plugin_active_for_network('simple-fields/simple_fields.php')) {
         register_widget(\UCI\Wordpress\Widget\News::class);
     }
 }
@@ -111,6 +111,13 @@ function testing($contacts, $args, $instance) {
         echo '</ul>';
     }
 }
+
+function uciseventeen_excerpt_more($more) {
+    global $post;
+
+    return '&nbsp';
+}
+add_filter('excerpt_more', 'uciseventeen_excerpt_more');
 
 /*function uciseventeen_so_before_content($stuff) {
     return $stuff;

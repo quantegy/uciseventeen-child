@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-md-12">
                 <?php the_post_thumbnail('full', array('class' => 'img-responsive')); ?>
-                <h1><?php the_title(); ?></h1>
+                <h1 class="page-heading"><?php the_title(); ?></h1>
+	            <?php the_date(); ?>
 	            <?php echo apply_filters('cj_authorship_authors', cj_authorship_get_author_names(get_the_ID()), array(
 		            'container_start' => '<p>',
 		            'container_end' => '</p>',
