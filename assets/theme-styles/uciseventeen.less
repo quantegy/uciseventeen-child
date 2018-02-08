@@ -1,4 +1,5 @@
 @import 'Bootstrap3-UCI-theme/css/bootstrap3-uci.less';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
 html {
 	background-color: @gray-lighter;
@@ -15,6 +16,18 @@ body {
 @font-size-h3: round((@font-size-h4 * 1.3));	// 22px
 @font-size-h2: round((@font-size-h3 * 1.4));	// 31px
 @font-size-h1: round((@font-size-h2 * 1.5));	// 47px
+
+.roboto {
+	font-family: 'Roboto Slab', serif;
+}
+.label-overlay {
+	a:hover,
+	a:hover img,
+	a:focus img {
+	font-weight: bold;
+ 	opacity: 1;
+	}
+}
 
 // ICON LIST //
 .uci-icon-list {
