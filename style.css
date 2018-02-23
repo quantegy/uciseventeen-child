@@ -13,3 +13,75 @@ Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-rea
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+html {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 33px;
+  color: #1d3e6b;
+}
+
+.page-heading {
+  line-height: 48px;
+}
+
+h2 {
+  font-size: 19px;
+  font-style: italic;
+  color: #606568;
+}
+
+.page-subheadline {
+  line-height: 24px;
+}
+
+p {
+  font-size: 15px;
+  color: #363636;
+}
+
+.page-content {
+  line-height: 21px;
+}
+
+.page-date {
+  font-size: 14px;
+  color: #606568;
+}
+
+.widget-title {
+  font-size: 33px;
+  color: #1d3e6b;
+  text-transform: uppercase;
+  background-color: #f8f8f8;
+  border-left: 8px solid #ffd200;
+}
+
+footer {
+  background-color: #f8f8f8;
+  font-size: 12px;
+  color: #606568;
+  line-height: 20px
+}
+
+hr {
+  color: #ebebeb;
+}
+
+.caption {
+  font-size: 14px;
+  color: #363636;
+  line-height: 18px;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  color: #606568;
+}
+
+.breadcrumb a {
+  color: #1b3d6d;
+}

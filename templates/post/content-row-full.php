@@ -4,17 +4,18 @@
             <div class="col-md-12">
                 <h1 class="page-heading"><?php the_title(); ?></h1>
 
-                <div><?php the_excerpt(); ?></div>
+                <h2 class="page-subheadline"><?php the_excerpt(); ?></h2>
 
-                <div>
+                <div class="page-date">
 	                <?php echo apply_filters('cj_authorship_authors', cj_authorship_get_author_names(get_the_ID()), array(
 		                'container_start' => '',
-		                'container_end' => '',
+		                'container_end' => ' | ',
 		                'before_author' => '',
 		                'after_author' => '',
 		                'prefix' => 'by',
 		                'separator' => ' '
-	                )); ?> |
+	                )); ?>
+
 	                <?php the_date(); ?>
                 </div>
 

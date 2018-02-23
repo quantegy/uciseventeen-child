@@ -9,10 +9,10 @@ require_once 'vendor/autoload.php';
  */
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
-	wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/style.css');
 	wp_enqueue_style('uciseventeen-child', get_stylesheet_directory_uri() . '/assets/theme-styles/uciseventeen.css');
 	wp_enqueue_style('bootstrap3-uci', get_stylesheet_directory_uri() . '/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css');
 	wp_enqueue_style('bootstrap3-accessibility', get_stylesheet_directory_uri() . '/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css');
+	wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/style.css');
 }
 
 add_action('wp_print_styles', 'uciseventeen_print_styles');
@@ -87,9 +87,13 @@ add_filter( 'siteorigin_widgets_widget_folders', 'uciseventeen_so_widgets_widget
 /**
  * override default widget title for tag list
  */
-add_filter('cjtl_widget_title', function($title, $instance, $args) {
-    return '<h4 class="widget-title">' . $title . '</h4>';
+add_filter('cjtl_widget_title', function ($title, $instance, $args) {
+	return '<h3 class="widget-title">' . $title . '</h3>';
 }, 9, 3);
+
+add_filter('widget_title', function($title, $instance = [], $id_base = '') {
+	return '<h3 class="widget-title">' . $title . '</h3>';
+}, 10);
 
 add_action('widgets_init', 'uciseventeen_child_widgets_init');
 function uciseventeen_child_widgets_init() {
@@ -102,7 +106,7 @@ add_filter('simple_fields_contacts_filter', 'testing', 9, 3);
 function testing($contacts, $args, $instance) {
     if(!empty($contacts)) {
 	    if(!empty($instance['title'])) {
-		    echo '<h4 class="widget-title">' . $instance['title'] . '</h4>';
+		    echo '<h3 class="widget-title">' . $instance['title'] . '</h3>';
 	    }
 
 	    echo '<ul class="list-group">';
