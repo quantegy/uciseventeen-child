@@ -20,6 +20,7 @@ html {
 
 h1 {
   font-family: 'Roboto Slab', serif;
+  font-weight: bold;
   font-size: 33px;
   color: #1d3e6b;
 }
@@ -35,7 +36,7 @@ h2 {
 }
 
 .page-subheadline {
-  line-height: 24px;
+  line-height: 26px;
 }
 
 p {
@@ -48,16 +49,17 @@ p {
 }
 
 .page-date {
-  font-size: 14px;
+  font-size: 13px;
   color: #606568;
 }
 
 .widget-title {
-  font-size: 33px;
+  font-size: 14px;
   color: #1d3e6b;
   text-transform: uppercase;
   background-color: #f8f8f8;
-  border-left: 8px solid #ffd200;
+  border-left: 3px solid #ffd200;
+  padding: 10px 10px 9px 12px;
 }
 
 footer {
@@ -72,9 +74,10 @@ hr {
 }
 
 .caption {
-  font-size: 14px;
+  font-size: 13px;
   color: #363636;
   line-height: 18px;
+  padding: 12px 15px;
 }
 
 .breadcrumb {
