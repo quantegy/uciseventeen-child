@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <h1 class="page-heading"><?php the_title(); ?></h1>
 
-                <h2 class="page-subheadline"><?php the_excerpt(); ?></h2>
+                <h2 class="page-subheadline"><?php echo get_the_excerpt(); ?></h2>
 
                 <div class="page-date">
 	                <?php echo apply_filters('cj_authorship_authors', cj_authorship_get_author_names(get_the_ID()), array(
@@ -26,7 +26,7 @@
 		            <?php echo wp_oembed_get(uciseventeen_get_featured_video_url()); ?>
                 <?php endif; ?>
 
-                <p><?php the_content(); ?></p>
+                <?php the_content(); ?>
             </div>
             <aside class="col-md-4">
 				<?php get_sidebar(); ?>

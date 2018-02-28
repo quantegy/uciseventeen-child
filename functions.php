@@ -88,12 +88,19 @@ add_filter( 'siteorigin_widgets_widget_folders', 'uciseventeen_so_widgets_widget
  * override default widget title for tag list
  */
 add_filter('cjtl_widget_title', function ($title, $instance, $args) {
-	return '<h3 class="widget-title">' . $title . '</h3>';
-}, 9, 3);
+	return '<h3 class="widget-title">' . $instance['title'] . '</h3>';
+}, 10, 3);
 
-add_filter('widget_title', function($title, $instance = [], $id_base = '') {
-	return '<h3 class="widget-title">' . $title . '</h3>';
-}, 10);
+/**
+ * default wrappers in widgets need to handled thus,
+ * because they do not have their own custom filters
+ */
+add_action('dynamic_sidebar_before', function($id) {
+    global $wp_registered_sidebars;
+
+    $wp_registered_sidebars[$id]['before_title'] = str_replace('<h4', '<h3', $wp_registered_sidebars[$id]['before_title']);
+	$wp_registered_sidebars[$id]['after_title'] = str_replace('h4>', 'h3>', $wp_registered_sidebars[$id]['after_title']);
+});
 
 add_action('widgets_init', 'uciseventeen_child_widgets_init');
 function uciseventeen_child_widgets_init() {
