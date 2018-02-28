@@ -42,19 +42,18 @@ h2 {
 p {
   font-size: 15px;
   color: #363636;
-}
-
-.page-content {
   line-height: 21px;
 }
 
 .page-date {
   font-size: 13px;
+  border-top: 1px solid #ebebeb;
   color: #606568;
 }
 
 .widget-title {
   font-size: 14px;
+  font-weight: bold;
   color: #1d3e6b;
   text-transform: uppercase;
   background-color: #f8f8f8;
@@ -69,6 +68,15 @@ footer {
   line-height: 20px
 }
 
+footer a {
+  color: #606568;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
 hr {
   color: #ebebeb;
 }
@@ -78,13 +86,49 @@ hr {
   color: #363636;
   line-height: 18px;
   padding: 12px 15px;
+  background-color: #f8f8f8;
 }
 
 .breadcrumb {
-  font-size: 12px;
+  font-size: 13px;
   color: #606568;
 }
 
 .breadcrumb a {
   color: #1b3d6d;
+}
+
+.widget_cj_related_links_widget .list-group-item > div:first-child {
+  color: #1b3d6d;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.widget_cj_related_links_widget .list-group-item .list-url {
+  font-size: 13px;
+  color: #606568;
+
+}
+
+.widget_cj_related_links_widget .list-group a {
+  text-decoration: none;
+}
+
+.widget_cj_related_links_widget .list-group a:hover {
+  text-decoration: underline;
+}
+
+.widget_neatly-recent-posts {
+  color: #1b3d6d;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.rp-info {
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
 }
