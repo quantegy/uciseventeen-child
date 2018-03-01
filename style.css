@@ -52,6 +52,7 @@ p {
 }
 
 .widget-title {
+  font-family: Arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
   color: #1d3e6b;
