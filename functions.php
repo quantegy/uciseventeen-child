@@ -7,8 +7,17 @@ require_once 'vendor/autoload.php';
  * Date: 9/5/17
  * Time: 10:08 AM
  */
+
+/**
+ * metadata key for alternative featured image
+ */
+@define('ALT_IMG_META_KEY', '_secondary_featured_image');
+
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
+    wp_enqueue_script('match-heights', get_stylesheet_directory_uri() . '/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js', ['jquery'], false, true);
+    wp_enqueue_script('image-preload', get_stylesheet_directory_uri(). '/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js', ['jquery'], false, true);
+
 	wp_enqueue_style('uciseventeen-child', get_stylesheet_directory_uri() . '/assets/theme-styles/uciseventeen.css');
 	wp_enqueue_style('bootstrap3-uci', get_stylesheet_directory_uri() . '/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css');
 	wp_enqueue_style('bootstrap3-accessibility', get_stylesheet_directory_uri() . '/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci-accessibility/bootstrap3-uci-accessibility.css');
@@ -138,6 +147,125 @@ function uciseventeen_excerpt_more($more) {
     return '&nbsp';
 }
 add_filter('excerpt_more', 'uciseventeen_excerpt_more');
+
+add_filter('post_thumbnail_html', function($html, $post_id, $post_thumbnail_id, $size, $attr) {
+    $alt_img = uciseventeen_alt_image($html, $post_id, $post_thumbnail_id, $size, $attr);
+    if($alt_img !== false) {
+        if(!is_single($post_id) && $size !== 'full') {
+	        $html = $alt_img;
+        }
+    }
+
+    return $html;
+}, 99, 5);
+
+/**
+ * remove current post from recent posts
+ */
+add_action('pre_get_posts', function($query) {
+    if(!is_admin() && is_singular('post')) {
+        $exclude = get_the_ID();
+        $query->set('post__not_in', array($exclude));
+    }
+});
+
+function uciseventeen_alt_image($html, $post_id, $post_thumbnail_id, $size, $attr){
+	$alt_img_id = get_post_meta($post_id, ALT_IMG_META_KEY, true);
+	//$alt_img_url = wp_get_attachment_url($alt_img_id);
+	//$alt_img_thumb_url = wp_get_attachment_thumb_url($alt_img_id);
+
+	/**
+	 * if media ID is not empty let's use the alt image instead of featured
+	 */
+	if(!empty($alt_img_id)) {
+		$img_tag = wp_get_attachment_image($alt_img_id, $size, false, $attr);
+
+		/**
+		 * need to get rid of WP's hard-coded width and height attributes FFS
+		 */
+		$dom = new DOMDocument();
+		$dom->formatOutput = true;
+		$dom->loadHTML($img_tag);
+		$imgEle = $dom->getElementsByTagName('img')->item(0);
+		$imgEle->removeAttribute('width');
+		$imgEle->removeAttribute('height');
+
+		$html = $dom->saveHTML();
+	} else {
+	    return false;
+    }
+
+	return $html;
+}
+
+/**
+ * @todo filter out all default WP image attributes (creating styling issues on thumbnails)
+ */
+add_filter('wp_get_attachment_image_attributes', function($attr) {
+    if(isset($attr['srcset'])) {
+        unset($attr['srcset']);
+    }
+
+    if(isset($attr['sizes'])) {
+        unset($attr['sizes']);
+    }
+
+    return $attr;
+});
+
+/**
+ * add secondary featured image for listing thumbnails
+ */
+add_action('add_meta_boxes', 'uciseventeen_alt_image_metabox');
+function uciseventeen_alt_image_metabox() {
+    add_meta_box('secondaryimgdiv', __('Secondary Featured Image', 'uciseventeen'), 'uciseventeen_secondary_image_metabox', 'post', 'side', 'low');
+}
+
+function uciseventeen_secondary_image_metabox($post) {
+    global $content_width, $_wp_additional_image_sizes;
+
+    $image_id = get_post_meta($post->ID, '_secondary_featured_image', true);
+
+    $old_content_width = $content_width;
+    $content_width = 254;
+
+	$content = '<p class="howto">Used for thumbnails on listings, or category pages.</p>';
+
+    if($image_id && get_post($image_id)) {
+        if(!isset($_wp_additional_image_sizes['post-thumbnail'])) {
+            $thumbnail_html = wp_get_attachment_image($image_id, [$content_width, $content_width]);
+        } else {
+            $thumbnail_html = wp_get_attachment_image($image_id, 'post-thumbnail');
+        }
+
+        if(!empty($thumbnail_html)) {
+            $content .= $thumbnail_html;
+            $content .= '<p class="hide-if-no-js"><a href="javascript:;" id="remove_secondary_image_button">' . esc_html__('Remove secondary image', 'uciseventeen') . '</a></p>';
+            $content .= '<input type="hidden" id="upload_secondary_image" name="' . ALT_IMG_META_KEY . '" value="' . esc_attr($image_id) . '">';
+        }
+
+	    $content_width = $old_content_width;
+    } else {
+	    $content .= '<img src="" style="width:' . esc_attr( $content_width ) . 'px;height:auto;border:0;display:none;" />';
+	    $content .= '<p class="hide-if-no-js"><a title="' . esc_attr__( 'Secondary featured image', 'uciseventeen' ) . '" href="javascript:;" id="upload_secondary_image_button" id="secondary-image" data-uploader_title="' . esc_attr__( 'Choose an image', 'uciseventeen' ) . '" data-uploader_button_text="' . esc_attr__( 'Set secondary featured image', 'uciseventeen' ) . '">' . esc_html__( 'Set secondary featured image', 'uciseventeen' ) . '</a></p>';
+	    $content .= '<input type="hidden" id="upload_secondary_image" name="' . ALT_IMG_META_KEY . '" value="" />';
+    }
+
+    echo $content;
+}
+
+add_action('save_post', 'uciseventeen_save_secondary_image', 10, 1);
+function uciseventeen_save_secondary_image($post_id) {
+    if(isset($_POST['_secondary_featured_image'])) {
+        $image_id = (int) $_POST['_secondary_featured_image'];
+
+        update_post_meta($post_id, '_secondary_featured_image', $image_id);
+    }
+}
+
+add_action('admin_enqueue_scripts', function() {
+    wp_enqueue_script('secondary_featured_image', get_stylesheet_directory_uri() . '/assets/js/uciseventeen/secondary_featured_image.js', ['jquery']);
+});
 
 /*function uciseventeen_so_before_content($stuff) {
     return $stuff;

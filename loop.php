@@ -6,32 +6,31 @@
  * Time: 1:25 PM
  */
 ?>
-<?php if ( have_posts() ): $i = 0; // @todo get a template for this ?>
-    <div class="content">
-		<?php while ( have_posts() ): the_post(); ?>
-			<?php if ( $i === 0 ): ?>
+<?php if(have_posts()): $i = 0; ?>
+	<?php while(have_posts()): the_post(); ?>
+		<?php if($i === 0): ?>
+            <div data-mh="loop-lg-match" class="loop-lg">
                 <div>
                     <a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail( 'medium_large', [ 'class' => 'img-responsive' ] ); ?>
-						<?php the_title( '<h2>', '</h2>' ); ?>
+						<?php the_post_thumbnail('large', ['class' => 'img-responsive', 'data-mh' => 'loop-lg-img']); ?>
+						<?php the_title('<div class="title">', '</div>'); ?>
                     </a>
-                    <p><?php the_excerpt(); ?></p>
                 </div>
-                <hr>
-			<?php else: ?>
-                <div class="media">
-                    <div class="media-left">
-                        <a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail( 'medium_large', [ 'class' => 'media-object' ] ); ?>
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <time datetime=""><?php the_date(); ?></time>
-                        <a href="<?php the_permalink(); ?>"><?php the_title( '<h4 class="media-heading">', '</h4>' ); ?></a>
-                        <p><?php the_excerpt(); ?></p>
-                    </div>
+                <div class="excerpt"><?php echo get_the_excerpt(); ?></div>
+                <div class="pubdate"><?php echo get_the_date('F j, Y'); ?></div>
+            </div>
+		<?php else: ?>
+            <div class="media">
+                <div class="media-left">
+                    <a href="<?php the_permalink(); ?>">
+						<?php the_post_thumbnail('medium_large', ['class' => 'media-object', 'style' => 'width: 100px;']); ?>
+                    </a>
                 </div>
-			<?php endif; ?>
-			<?php $i ++; endwhile; ?>
-    </div>
+                <div class="media-body">
+                    <a href="<?php the_permalink(); ?>"><?php the_title('<p class="media-heading">', '</p>'); ?></a>
+                    <p><time><?php echo get_the_date('F j, Y'); ?></time></p>
+                </div>
+            </div>
+		<?php endif; ?>
+		<?php $i++; endwhile; ?>
 <?php endif;
