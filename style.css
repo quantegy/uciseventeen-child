@@ -51,17 +51,6 @@ p {
   color: #606568;
 }
 
-.widget-title {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  color: #1d3e6b;
-  text-transform: uppercase;
-  background-color: #f8f8f8;
-  border-left: 3px solid #ffd200;
-  padding: 10px 10px 9px 12px;
-}
-
 footer {
   background-color: #f8f8f8;
   font-size: 12px;
@@ -133,3 +122,77 @@ hr {
   font-weight: normal;
   font-size: 14px;
 }
+
+.widget_siteorigin-panels-postloop h3.widget-title, .so-widget-sow-editor h3.widget-title {
+  font-size: 24px;
+  border-left: none;
+  background: none;
+}
+
+.widget_siteorigin-panels-postloop .loop-lg .title {
+  color: #1b3d6d;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.widget_siteorigin-panels-postloop .loop-lg a {
+  text-decoration: none;
+}
+
+.widget_siteorigin-panels-postloop .loop-lg a:hover {
+  text-decoration: underline;
+}
+
+.widget_siteorigin-panels-postloop .media .media-heading {
+  color: #1b3d6d;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.widget_siteorigin-panels-postloop .media a, .widget_siteorigin-panels-postloop .lt-big .title a, .widget_siteorigin-panels-postloop .lt-small .title a {
+  text-decoration: none;
+}
+
+.widget_siteorigin-panels-postloop .media a:hover, .widget_siteorigin-panels-postloop .lt-big .title a:hover, .widget_siteorigin-panels-postloop .lt-small .title a:hover {
+  text-decoration: underline;
+}
+
+.widget_siteorigin-panels-postloop .excerpt {
+  color: #606568;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+.widget_siteorigin-panels-postloop .pubdate, .widget_siteorigin-panels-postloop .media-body time {
+  color: #606568;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+.widget-title, .sidebarish h3.widget-title {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #1d3e6b;
+  text-transform: uppercase;
+  background-color: #f8f8f8;
+  border-left: 3px solid #ffd200;
+  padding: 10px 10px 9px 12px;
+}
+
+.widget_siteorigin-panels-postloop .lt-big .title, .widget_siteorigin-panels-postloop .lt-big .title a {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  color: #1b3d6d;
+  font-size: 33px;
+}
+
+.widget_siteorigin-panels-postloop .lt-small .title, .widget_siteorigin-panels-postloop .lt-small .title a {
+  color: #1b3d6d;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+
