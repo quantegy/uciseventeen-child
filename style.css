@@ -45,10 +45,15 @@ p {
   line-height: 21px;
 }
 
+.article p:first-of-type {
+  padding-top: 20px;
+}
+
 .page-date {
   font-size: 13px;
   border-top: 1px solid #ebebeb;
   color: #606568;
+  padding: 8px 0 8px 2px;
 }
 
 footer {
@@ -117,16 +122,32 @@ hr {
   line-height: 20px;
 }
 
+.widget_neatly-recent-posts .media-object {
+  width: 125px;
+}
+
+.widget_neatly-recent-posts .media-left {
+  padding-right: 20px;
+}
+
 .rp-info {
   font-family: Arial, sans-serif;
   font-weight: normal;
   font-size: 14px;
 }
 
-.widget_siteorigin-panels-postloop h3.widget-title, .so-widget-sow-editor h3.widget-title {
-  font-size: 24px;
-  border-left: none;
-  background: none;
+.rp-title a {
+  color: #1b3d6d;
+  text-decoration: none;
+}
+
+.rp-title a:hover {
+  text-decoration: underline;
+}
+
+.rp-date {
+  font-size: 13px;
+  color: #606568;
 }
 
 .widget_siteorigin-panels-postloop .loop-lg .title {
@@ -171,15 +192,26 @@ hr {
   font-size: 13px;
 }
 
-.widget-title, .sidebarish h3.widget-title {
+.widget_siteorigin-panels-postloop h3.widget-title, .so-widget-sow-editor h3.widget-title, .so-panel h3.widget-title {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  color: #1d3e6b;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.sidebarish h3.widget-title, aside h3.widget-title {
   font-family: Arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
-  color: #1d3e6b;
   text-transform: uppercase;
   background-color: #f8f8f8;
   border-left: 3px solid #ffd200;
   padding: 10px 10px 9px 12px;
+}
+
+aside h3.widget-title:first-of-type {
+  margin-top: 0;
 }
 
 .widget_siteorigin-panels-postloop .lt-big .title, .widget_siteorigin-panels-postloop .lt-big .title a {
@@ -196,3 +228,32 @@ hr {
   font-size: 24px;
 }
 
+.widget_cj_tag_links .list-group-item a {
+  text-decoration: none;
+}
+
+.widget_cj_tag_links .list-group-item a:hover {
+  text-decoration: underline;
+}
+
+.list-group-item {
+  border: none;
+  color: #363636;
+}
+
+.list-group-item a {
+  color: #1b3d6d;
+}
+
+.widget_cj_related_links_widget .list-group-item {
+  border-top: 1px solid #f2f2f2;
+}
+
+.widget_cj_related_links_widget .list-group-item:first-child {
+  border-top: none;
+}
+
+.widget_neatly-recent-posts .media {
+  padding-left: 15px;
+  padding-right: 15px;
+}

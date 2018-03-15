@@ -1,7 +1,7 @@
 <main>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 article article-column-full">
                 <h1 class="page-heading"><?php the_title(); ?></h1>
 
                 <h2 class="page-subheadline"><?php echo get_the_excerpt(); ?></h2>

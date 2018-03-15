@@ -1,7 +1,7 @@
 <main class="content">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 clearfix">
+            <div class="col-md-12 clearfix article article-row-wrap">
                 <h1 class="page-heading"><?php the_title(); ?></h1>
 
                 <h2 class="page-subheadline"><?php echo get_the_excerpt(); ?></h2>
