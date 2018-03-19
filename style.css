@@ -76,7 +76,7 @@ hr {
   color: #ebebeb;
 }
 
-.caption {
+.caption, .wp-caption-text {
   font-size: 13px;
   color: #363636;
   line-height: 18px;
@@ -256,4 +256,42 @@ aside h3.widget-title:first-of-type {
 .widget_neatly-recent-posts .media {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.category h1 {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 33px;
+}
+
+.category h2 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.category a {
+  text-decoration: none;
+}
+
+.category a h2 {
+  color: #1b3d6d;
+}
+
+.category a:hover {
+  text-decoration: underline;
+}
+
+.category .post-excerpt {
+  font-size: 15px;
+}
+
+.category .post-date {
+  color: #606568;
+  font-size: 13px;
+}
+
+.category .row {
+  padding-bottom: 20px;
 }
