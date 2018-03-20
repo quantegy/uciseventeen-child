@@ -1,4 +1,7 @@
 <?php
+if(!file_exists($file = __DIR__ . '/vendor/autoload.php')) {
+    throw new Exception('please, run "composer install" in ' . __DIR__);
+}
 require_once 'vendor/autoload.php';
 
 /**

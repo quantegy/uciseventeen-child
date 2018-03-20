@@ -24,7 +24,7 @@ if(uciseventeen_has_featured_video()) {
 		<div class="post-meta post-title">
 			<a href="<?php the_permalink(); ?>"><?php the_title('<h2>', '</h2>'); ?></a>
 		</div>
+        <div class="post-meta post-excerpt"><?php echo get_the_excerpt(); ?></div>
 		<?php the_date('F j, Y', '<div class="post-meta post-date">', '</div>'); ?>
-		<div class="post-meta post-excerpt"><?php echo get_the_excerpt(); ?></div>
 	</div>
 </div>
