@@ -13,256 +13,302 @@ Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-rea
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+@darkBlue: #1d3e6b;
+@charcoalGray: #606568;
+@lighterBlack: #363636;
+@mediumGray: #ebebeb;
+@lightGray: #f8f8f8;
+@somewhatBlue: #1b3d6d;
+
 .boldUppercaseIt {
   text-transform: uppercase;
   font-weight: bold;
 }
+
 .robotoBold {
   font-family: 'Roboto Slab', serif;
   font-weight: bold;
 }
+
 .centerBlock {
-  display: block;
+  display:block;
   margin-left: auto;
   margin-right: auto;
 }
+
 html {
   font-family: Arial, sans-serif;
 }
+
 h1 {
-  font-family: 'Roboto Slab', serif;
-  font-weight: bold;
+  .robotoBold;
   font-size: 33px;
-  color: #1d3e6b;
+  color: @darkBlue;
 }
+
 .page-heading {
   line-height: 48px;
 }
+
 h2 {
   font-size: 19px;
   font-style: italic;
-  color: #606568;
+  color: @charcoalGray;
 }
+
 .page-subheadline {
   line-height: 26px;
 }
+
 p {
   font-size: 15px;
-  color: #363636;
+  color: @lighterBlack;
   line-height: 21px;
 }
+
 .article p:first-of-type {
   padding-top: 20px;
 }
+
 .page-date {
   font-size: 13px;
-  border-top: 1px solid #ebebeb;
-  color: #606568;
+  border-top: 1px solid @mediumGray;
+  color: @charcoalGray;
   padding: 8px 0 8px 2px;
 }
+
 footer {
-  background-color: #f8f8f8;
+  background-color: @lightGray;
   font-size: 12px;
-  color: #606568;
-  line-height: 20px;
+  color: @charcoalGray;
+  line-height: 20px
 }
+
 footer a {
-  color: #606568;
+  color: @charcoalGray;
   text-decoration: none;
 }
+
 footer a:hover {
   text-decoration: underline;
 }
+
 hr {
-  color: #ebebeb;
+  color: @mediumGray;
 }
+
 .caption {
   font-size: 13px;
-  color: #363636;
+  color: @lighterBlack;
   line-height: 18px;
   padding: 12px 15px;
-  background-color: #f8f8f8;
+  background-color: @lightGray;
 }
+
 .breadcrumb {
   font-size: 13px;
-  color: #606568;
+  color: @charcoalGray;
 }
+
 .breadcrumb a {
-  color: #1b3d6d;
+  color: @somewhatBlue;
 }
+
 .widget_cj_related_links_widget .list-group-item > div:first-child {
-  color: #1d3e6b;
+  color: @darkBlue;
   font-family: Arial, sans-serif;
   font-size: 16px;
   font-weight: bold;
 }
+
 .widget_cj_related_links_widget .list-group-item .list-url {
   font-size: 13px;
-  color: #606568;
+  color: @charcoalGray;
+
 }
+
 .widget_cj_related_links_widget .list-group a {
   text-decoration: none;
 }
+
 .widget_cj_related_links_widget .list-group a:hover {
   text-decoration: underline;
 }
+
 .widget_neatly-recent-posts {
-  color: #1d3e6b;
-  font-family: 'Roboto Slab', serif;
-  font-weight: bold;
+  color: @darkBlue;
+  .robotoBold;
   font-size: 16px;
   line-height: 20px;
 }
+
 .widget_neatly-recent-posts .media-object {
   width: 125px;
 }
+
 .widget_neatly-recent-posts .media-left {
   padding-right: 20px;
 }
+
 .rp-info {
   font-family: Arial, sans-serif;
   font-weight: normal;
   font-size: 14px;
 }
+
 .rp-title a {
-  color: #1d3e6b;
+  color: @darkBlue;
   text-decoration: none;
 }
+
 .rp-title a:hover {
   text-decoration: underline;
 }
+
 .rp-date {
   font-size: 13px;
-  color: #606568;
+  color: @charcoalGray;
 }
+
 .widget_siteorigin-panels-postloop .loop-lg .title {
-  color: #1d3e6b;
-  font-family: 'Roboto Slab', serif;
-  font-weight: bold;
+  color: @darkBlue;
+  .robotoBold;
   font-size: 20px;
   line-height: 26px;
 }
+
 .widget_siteorigin-panels-postloop .loop-lg a {
   text-decoration: none;
 }
+
 .widget_siteorigin-panels-postloop .loop-lg a:hover {
   text-decoration: underline;
 }
+
 .widget_siteorigin-panels-postloop .media .media-heading {
-  color: #1b3d6d;
-  font-family: 'Roboto Slab', serif;
-  font-weight: bold;
+  color: @somewhatBlue;
+  .robotoBold;
   font-size: 16px;
 }
-.widget_siteorigin-panels-postloop .media a,
-.widget_siteorigin-panels-postloop .lt-big .title a,
-.widget_siteorigin-panels-postloop .lt-small .title a {
+
+.widget_siteorigin-panels-postloop .media a, .widget_siteorigin-panels-postloop .lt-big .title a, .widget_siteorigin-panels-postloop .lt-small .title a {
   text-decoration: none;
 }
-.widget_siteorigin-panels-postloop .media a:hover,
-.widget_siteorigin-panels-postloop .lt-big .title a:hover,
-.widget_siteorigin-panels-postloop .lt-small .title a:hover {
+
+.widget_siteorigin-panels-postloop .media a:hover, .widget_siteorigin-panels-postloop .lt-big .title a:hover, .widget_siteorigin-panels-postloop .lt-small .title a:hover {
   text-decoration: underline;
 }
+
 .widget_siteorigin-panels-postloop .excerpt {
-  color: #606568;
+  color: @charcoalGray;
   font-family: Arial, sans-serif;
   font-size: 15px;
 }
-.widget_siteorigin-panels-postloop .pubdate,
-.widget_siteorigin-panels-postloop .media-body time {
-  color: #606568;
+
+.widget_siteorigin-panels-postloop .pubdate, .widget_siteorigin-panels-postloop .media-body time {
+  color: @charcoalGray;
   font-family: Arial, sans-serif;
   font-size: 13px;
 }
-.widget_siteorigin-panels-postloop h3.widget-title,
-.so-widget-sow-editor h3.widget-title,
-.so-panel h3.widget-title {
+
+.widget_siteorigin-panels-postloop h3.widget-title, .so-widget-sow-editor h3.widget-title, .so-panel h3.widget-title {
   font-family: Arial, sans-serif;
   font-size: 24px;
-  color: #1d3e6b;
-  text-transform: uppercase;
-  font-weight: bold;
+  color: @darkBlue;
+  .boldUppercaseIt;
 }
-.sidebarish h3.widget-title,
-aside h3.widget-title {
+
+.sidebarish h3.widget-title, aside h3.widget-title {
   font-family: Arial, sans-serif;
   font-size: 14px;
-  text-transform: uppercase;
-  font-weight: bold;
-  background-color: #f8f8f8;
+  .boldUppercaseIt;
+  background-color: @lightGray;
   border-left: 3px solid #ffd200;
   padding: 10px 10px 9px 12px;
 }
+
 aside h3.widget-title:first-of-type {
   margin-top: 0;
 }
-.widget_siteorigin-panels-postloop .lt-big .title,
-.widget_siteorigin-panels-postloop .lt-big .title a {
-  font-family: 'Roboto Slab', serif;
-  font-weight: bold;
-  color: #1d3e6b;
+
+.widget_siteorigin-panels-postloop .lt-big .title, .widget_siteorigin-panels-postloop .lt-big .title a {
+  .robotoBold;
+  color: @darkBlue;
   font-size: 33px;
 }
-.widget_siteorigin-panels-postloop .lt-small .title,
-.widget_siteorigin-panels-postloop .lt-small .title a {
-  color: #1d3e6b;
-  font-family: 'Roboto Slab', serif;
-  font-weight: bold;
+
+.widget_siteorigin-panels-postloop .lt-small .title, .widget_siteorigin-panels-postloop .lt-small .title a {
+  color: @darkBlue;
+  .robotoBold;
   font-size: 20px;
   line-height: 26px;
 }
+
 .widget_cj_tag_links .list-group-item a {
   text-decoration: none;
 }
+
 .widget_cj_tag_links .list-group-item a:hover {
   text-decoration: underline;
 }
+
 .list-group-item {
   border: none;
-  color: #363636;
+  color: @lighterBlack;
 }
+
 .list-group-item a {
-  color: #1d3e6b;
+  color: @darkBlue;
 }
+
 .widget_cj_related_links_widget .list-group-item {
   border-top: 1px solid #f2f2f2;
 }
+
 .widget_cj_related_links_widget .list-group-item:first-child {
   border-top: none;
 }
+
 .widget_neatly-recent-posts .media {
   padding-left: 15px;
   padding-right: 15px;
 }
+
 .category h1 {
   font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 33px;
 }
+
 .category h2 {
-  font-family: 'Roboto Slab', serif;
-  font-weight: bold;
+  .robotoBold;
   font-size: 20px;
   line-height: 26px;
   font-style: inherit;
 }
+
 .category a {
   text-decoration: none;
 }
+
 .category a h2 {
-  color: #1d3e6b;
+  color: @darkBlue;
 }
+
 .category a:hover {
   text-decoration: underline;
 }
+
 .category .post-excerpt {
   font-size: 15px;
 }
+
 .category .post-date {
-  color: #606568;
+  color: @charcoalGray;
   font-size: 13px;
 }
+
 .category .row {
   padding-bottom: 20px;
 }

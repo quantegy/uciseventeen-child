@@ -9,7 +9,9 @@
       "email": "walshcj@uci.edu"
     }
   ],
-  "require": {},
+  "require": {
+    "google/apiclient": "^2.2"
+  },
   "repositories": {},
   "autoload": {
     "classmap": [
