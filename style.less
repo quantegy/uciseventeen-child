@@ -13,13 +13,16 @@ Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-rea
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+@import "assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap/3.3.4/variables.less";
 
 @darkBlue: #1d3e6b;
 @charcoalGray: #606568;
 @lighterBlack: #363636;
 @mediumGray: #ebebeb;
 @lightGray: #f8f8f8;
+@somewhatGray: #f2f2f2;
 @somewhatBlue: #1b3d6d;
+
 
 .boldUppercaseIt {
   text-transform: uppercase;
@@ -263,7 +266,7 @@ aside h3.widget-title:first-of-type {
 }
 
 .widget_cj_related_links_widget .list-group-item {
-  border-top: 1px solid #f2f2f2;
+  border-top: 1px solid @somewhatGray;
 }
 
 .widget_cj_related_links_widget .list-group-item:first-child {
@@ -288,6 +291,15 @@ aside h3.widget-title:first-of-type {
   font-style: inherit;
 }
 
+.category .post-item {
+  border-top: 1px solid @somewhatGray;
+  padding: 30px 0 30px 0;
+}
+
+.category .post-item:first-of-type {
+  border-top: none;
+}
+
 .category a {
   text-decoration: none;
 }
@@ -302,6 +314,7 @@ aside h3.widget-title:first-of-type {
 
 .category .post-excerpt {
   font-size: 15px;
+  color: @lighterBlack;
 }
 
 .category .post-date {
@@ -311,4 +324,25 @@ aside h3.widget-title:first-of-type {
 
 .category .row {
   padding-bottom: 20px;
+}
+
+.postItemPadding {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: @screen-sm-min) {
+  .category .post-item {
+    border-top: none;
+  }
+
+  .category .post-item {
+    img {
+      .postItemPadding;
+    }
+
+    .post-meta {
+      .postItemPadding;
+    }
+  }
 }

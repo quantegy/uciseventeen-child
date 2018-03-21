@@ -10,7 +10,7 @@ if(uciseventeen_has_featured_video()) {
 	$classes[] = 'featured-video';
 }
 ?>
-<div class="row">
+<div class="row post-item">
 	<?php if(has_post_thumbnail()): ?>
 	<div class="col-md-4">
 		<a href="<?php the_permalink(); ?>">
