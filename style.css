@@ -36,7 +36,8 @@ h1 {
   color: #1d3e6b;
 }
 .page-heading {
-  line-height: 48px;
+  line-height: 45px;
+  padding-right: 15px;
 }
 h2 {
   font-size: 19px;
@@ -45,6 +46,8 @@ h2 {
 }
 .page-subheadline {
   line-height: 26px;
+  margin: 10px 0 20px 0;
+  padding-right: 15px;
 }
 p {
   font-size: 15px;
@@ -180,22 +183,29 @@ hr {
 .so-panel h3.widget-title {
   font-family: Arial, sans-serif;
   font-size: 24px;
-  color: #1d3e6b;
+  color: #1b3d6d;
   text-transform: uppercase;
   font-weight: bold;
 }
-.sidebarish h3.widget-title,
-aside h3.widget-title {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: bold;
-  background-color: #f8f8f8;
-  border-left: 3px solid #ffd200;
-  padding: 10px 10px 9px 12px;
+.category-more {
+  border-top: 1px solid #f2f2f2;
+}
+.category-more a {
+  color: #1b3d6d;
+  text-decoration: none;
+}
+.category-more a:hover {
+  text-decoration: underline;
 }
 aside h3.widget-title:first-of-type {
   margin-top: 0;
+}
+.widget_siteorigin-panels-postloop .lt-big {
+  border-right: 1px solid #f2f2f2;
+  margin-bottom: 50px;
+}
+.widget_siteorigin-panels-postloop .lt-big .title {
+  line-height: 45px;
 }
 .widget_siteorigin-panels-postloop .lt-big .title,
 .widget_siteorigin-panels-postloop .lt-big .title a {
@@ -251,9 +261,6 @@ aside h3.widget-title:first-of-type {
   border-top: 1px solid #f2f2f2;
   padding: 30px 0 30px 0;
 }
-.category .post-item:first-of-type {
-  border-top: none;
-}
 .category a {
   text-decoration: none;
 }
@@ -263,13 +270,16 @@ aside h3.widget-title:first-of-type {
 .category a:hover {
   text-decoration: underline;
 }
+.category .post-date {
+  color: #606568;
+  font-size: 13px;
+}
 .category .post-excerpt {
   font-size: 15px;
   color: #363636;
 }
-.category .post-date {
-  color: #606568;
-  font-size: 13px;
+.category .post-item:first-of-type {
+  border-top: none;
 }
 .category .row {
   padding-bottom: 20px;
@@ -277,6 +287,83 @@ aside h3.widget-title:first-of-type {
 .postItemPadding {
   padding-left: 15px;
   padding-right: 15px;
+}
+.sideWidgetTitles {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #f8f8f8;
+  border-left: 3px solid #ffd200;
+  padding: 10px 10px 9px 12px;
+}
+aside h3.widget-title {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #f8f8f8;
+  border-left: 3px solid #ffd200;
+  padding: 10px 10px 9px 12px;
+}
+.sidebarish h3.widget-title {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #f8f8f8;
+  border-left: 3px solid #ffd200;
+  padding: 10px 10px 9px 12px;
+}
+.sidebarish .so-widget-sow-editor .textwidget {
+  margin-top: -31px;
+  padding-left: 14px;
+}
+.sidebarish .so-widget-sow-editor .textwidget ul li {
+  font-size: 14px;
+  display: list-item;
+  text-align: -webkit-match-parent;
+  padding: 4px 0;
+}
+.sidebarish .so-widget-sow-editor .textwidget ul li a {
+  text-decoration: none;
+  color: #1b3d6d;
+}
+.sidebarish .so-widget-sow-editor .textwidget ul li a:hover {
+  text-decoration: underline;
+}
+.video-heading-big .textwidget,
+.video-heading-big .textwidget p {
+  color: #606568;
+}
+.video-heading-big .textwidget a {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  font-size: 33px;
+  line-height: 40px;
+  text-decoration: none;
+  color: #1b3d6d;
+}
+.video-heading-big .textwidget a:hover {
+  text-decoration: underline;
+}
+.video-heading-small .textwidget,
+.video-heading-small .textwidget p {
+  color: #606568;
+}
+.video-heading-small .textwidget a {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+  text-decoration: none;
+  color: #1b3d6d;
+}
+.video-heading-small .textwidget a:hover {
+  text-decoration: underline;
+}
+.uci-in-the-news {
+  padding: 0 15px 0 15px;
 }
 @media (max-width: 768px) {
   .category .post-item {
@@ -289,5 +376,8 @@ aside h3.widget-title:first-of-type {
   .category .post-item .post-meta {
     padding-left: 15px;
     padding-right: 15px;
+  }
+  .lt-big {
+    border-right: none;
   }
 }

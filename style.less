@@ -51,7 +51,8 @@ h1 {
 }
 
 .page-heading {
-  line-height: 48px;
+  line-height: 45px;
+  padding-right: 15px;
 }
 
 h2 {
@@ -62,6 +63,8 @@ h2 {
 
 .page-subheadline {
   line-height: 26px;
+  margin: 10px 0 20px 0;
+  padding-right: 15px;
 }
 
 p {
@@ -218,34 +221,55 @@ hr {
 .widget_siteorigin-panels-postloop h3.widget-title, .so-widget-sow-editor h3.widget-title, .so-panel h3.widget-title {
   font-family: Arial, sans-serif;
   font-size: 24px;
-  color: @darkBlue;
+  color: @somewhatBlue;
   .boldUppercaseIt;
 }
 
-.sidebarish h3.widget-title, aside h3.widget-title {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  .boldUppercaseIt;
-  background-color: @lightGray;
-  border-left: 3px solid #ffd200;
-  padding: 10px 10px 9px 12px;
+.category-more {
+  border-top: 1px solid @somewhatGray;
+
+  a {
+    color: @somewhatBlue;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 aside h3.widget-title:first-of-type {
   margin-top: 0;
 }
 
-.widget_siteorigin-panels-postloop .lt-big .title, .widget_siteorigin-panels-postloop .lt-big .title a {
-  .robotoBold;
-  color: @darkBlue;
-  font-size: 33px;
+.widget_siteorigin-panels-postloop {
+  .lt-big {
+    border-right: 1px solid @somewhatGray;
+    margin-bottom: 50px;
+
+    .title {
+      line-height: 45px;
+
+      &, a {
+        .robotoBold;
+        color: @darkBlue;
+        font-size: 33px;
+      }
+    }
+  }
 }
 
-.widget_siteorigin-panels-postloop .lt-small .title, .widget_siteorigin-panels-postloop .lt-small .title a {
-  color: @darkBlue;
-  .robotoBold;
-  font-size: 20px;
-  line-height: 26px;
+.widget_siteorigin-panels-postloop {
+  .lt-small {
+    .title {
+      &, a {
+        color: @darkBlue;
+        .robotoBold;
+        font-size: 20px;
+        line-height: 26px;
+      }
+    }
+  }
 }
 
 .widget_cj_tag_links .list-group-item a {
@@ -278,57 +302,151 @@ aside h3.widget-title:first-of-type {
   padding-right: 15px;
 }
 
-.category h1 {
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  font-size: 33px;
-}
+.category {
+  h1 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 33px;
+  }
 
-.category h2 {
-  .robotoBold;
-  font-size: 20px;
-  line-height: 26px;
-  font-style: inherit;
-}
+  h2 {
+    .robotoBold;
+    font-size: 20px;
+    line-height: 26px;
+    font-style: inherit;
+  }
 
-.category .post-item {
-  border-top: 1px solid @somewhatGray;
-  padding: 30px 0 30px 0;
-}
+  .post-item {
+    border-top: 1px solid @somewhatGray;
+    padding: 30px 0 30px 0;
+  }
 
-.category .post-item:first-of-type {
-  border-top: none;
-}
+  a {
+    text-decoration: none;
 
-.category a {
-  text-decoration: none;
-}
+    h2 {
+      color: @darkBlue;
+    }
+  }
 
-.category a h2 {
-  color: @darkBlue;
-}
+  a:hover {
+    text-decoration: underline;
+  }
 
-.category a:hover {
-  text-decoration: underline;
-}
+  .post-date {
+    color: @charcoalGray;
+    font-size: 13px;
+  }
 
-.category .post-excerpt {
-  font-size: 15px;
-  color: @lighterBlack;
-}
+  .post-excerpt {
+    font-size: 15px;
+    color: @lighterBlack;
+  }
 
-.category .post-date {
-  color: @charcoalGray;
-  font-size: 13px;
-}
+  .post-item:first-of-type {
+    border-top: none;
+  }
 
-.category .row {
-  padding-bottom: 20px;
+  .row {
+    padding-bottom: 20px;
+  }
 }
 
 .postItemPadding {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.sideWidgetTitles {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  .boldUppercaseIt;
+  background-color: @lightGray;
+  border-left: 3px solid #ffd200;
+  padding: 10px 10px 9px 12px;
+}
+
+aside h3.widget-title {
+  .sideWidgetTitles;
+}
+
+.sidebarish {
+  h3.widget-title {
+    .sideWidgetTitles;
+  }
+
+  .so-widget-sow-editor {
+    .textwidget {
+      margin-top: -31px;
+      padding-left: 14px;
+
+      ul {
+        li {
+          font-size: 14px;
+          display: list-item;
+          text-align: -webkit-match-parent;
+          padding: 4px 0;
+
+          a {
+            text-decoration: none;
+            color: @somewhatBlue;
+          }
+
+          a:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+.video-heading-big {
+  .textwidget {
+    &, p {
+      color: @charcoalGray;
+    }
+
+    a {
+      font-family: 'Roboto Slab', serif;
+      font-weight: bold;
+      font-size: 33px;
+      line-height: 40px;
+      text-decoration: none;
+      color: @somewhatBlue;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.video-heading-small {
+  .textwidget {
+    &, p {
+      color: @charcoalGray;
+    }
+
+    a {
+      font-family: 'Roboto Slab', serif;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 26px;
+      text-decoration: none;
+      color: @somewhatBlue;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.featured-videos {}
+
+.uci-in-the-news {
+  padding: 0 15px 0 15px;
 }
 
 @media (max-width: @screen-sm-min) {
@@ -344,5 +462,9 @@ aside h3.widget-title:first-of-type {
     .post-meta {
       .postItemPadding;
     }
+  }
+
+  .lt-big {
+    border-right: none;
   }
 }

@@ -25,4 +25,14 @@
             </div>
         </div>
 	<?php endwhile; ?>
+	<?php if(is_archive() || is_category()): ?>
+		<?php
+		// get category title for link label
+		$catID = get_query_var('cat');
+		$catName = get_category($catID)->name;
+		?>
+        <div class="category-more">
+            <a href="<?php echo get_category_link($catID); ?>">View more <?php echo $catName; ?></a>
+        </div>
+	<?php endif; ?>
 <?php endif;
