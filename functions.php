@@ -16,6 +16,8 @@ require_once 'vendor/autoload.php';
  */
 @define('ALT_IMG_META_KEY', '_secondary_featured_image');
 
+@define('GTM_SCRIPT_OPTION_NAME', 'gtm_script');
+
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
     wp_enqueue_script('match-heights', get_stylesheet_directory_uri() . '/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js', ['jquery'], false, true);
@@ -42,10 +44,10 @@ function uciseventeen_print_styles() {
  * include our custom sitorigin pagebuilder widgets
  * if the plugin is available
  */
-include_once ABSPATH . 'wp-admin/includes/plugin.php';
+/*include_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( is_plugin_active( 'so-widgets-bundle/so-widgets-bundle.php' ) ) {
 	require_once 'widgets/parallax-headline.php';
-}
+}*/
 
 /**
  * let user know that there is a pagebuilder dependency (optional)
@@ -152,6 +154,8 @@ function uciseventeen_excerpt_more($more) {
 add_filter('excerpt_more', 'uciseventeen_excerpt_more');
 
 add_filter('post_thumbnail_html', function($html, $post_id, $post_thumbnail_id, $size, $attr) {
+
+
     $alt_img = uciseventeen_alt_image($html, $post_id, $post_thumbnail_id, $size, $attr);
     if($alt_img !== false) {
         if(!is_single($post_id) && $size !== 'full') {
@@ -268,6 +272,30 @@ function uciseventeen_save_secondary_image($post_id) {
 
 add_action('admin_enqueue_scripts', function() {
     wp_enqueue_script('secondary_featured_image', get_stylesheet_directory_uri() . '/assets/js/uciseventeen/secondary_featured_image.js', ['jquery']);
+});
+
+/**
+ * add Google Tag manager support to wp_head() output
+ */
+add_action('wp_head', function() {
+    $value = get_option(GTM_SCRIPT_OPTION_NAME);
+    if (!empty($value)) {
+	    ?>
+        <script><?php echo $value; ?></script>
+	    <?php
+    }
+});
+
+/**
+ * register GTM setting
+ */
+add_filter('admin_init', function() {
+    register_setting('general', GTM_SCRIPT_OPTION_NAME);
+    add_settings_field(GTM_SCRIPT_OPTION_NAME, '<label for="' . GTM_SCRIPT_OPTION_NAME . '">' . __('Google Tag Manager Script', 'uciseventeen') . '</label>', function() {
+        $value = get_option(GTM_SCRIPT_OPTION_NAME);
+
+        echo '<textarea style="width: 70%; height: 200px;" id="' . GTM_SCRIPT_OPTION_NAME . '" name="' . GTM_SCRIPT_OPTION_NAME . '">' . $value . '</textarea>';
+    }, 'general');
 });
 
 /*function uciseventeen_so_before_content($stuff) {

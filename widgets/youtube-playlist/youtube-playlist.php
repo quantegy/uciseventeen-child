@@ -20,7 +20,7 @@ class Youtube_Playlist extends \SiteOrigin_Widget {
 
 	private $apiKey;
 
-	function __construct( $id, $name, array $widget_options = [], array $control_options = [], array $form_options = [], $base_folder = FALSE ) {
+	function __construct() {
 		parent::__construct(
 			'youtube-playlist',
 			__('YouTube Playlist', self::TEXT_DOMAIN),
@@ -29,13 +29,7 @@ class Youtube_Playlist extends \SiteOrigin_Widget {
 				'help' => ''
 			],
 			[],
-			[
-				'apikey' => [
-					'type' => 'text',
-					'label' => __('API key', self::TEXT_DOMAIN),
-					'default' => ''
-				]
-			],
+			false,
 			plugin_dir_path(__FILE__)
 		);
 	}
@@ -55,15 +49,25 @@ class Youtube_Playlist extends \SiteOrigin_Widget {
 		return '';
 	}
 
-	/*function get_widget_form() {
+	function get_widget_form() {
 		return [
+			'playlistid' => [
+				'type' => 'text',
+				'label' => __('Playlist ID/URL', self::TEXT_DOMAIN),
+				'default' => ''
+			],
 			'apikey' => [
 				'type' => 'text',
 				'label' => __('API key', self::TEXT_DOMAIN),
 				'default' => ''
+			],
+			'numvideos' => [
+				'type' => 'text',
+				'label' => __('How many videos should be listed?', self::TEXT_DOMAIN),
+				'default' => 3
 			]
 		];
-	}*/
+	}
 }
 
-//siteorigin_widget_register('youtube-playlist', __FILE__, Youtube_Playlist::class);
+siteorigin_widget_register('youtube-playlist', __FILE__, Youtube_Playlist::class);
