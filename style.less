@@ -21,6 +21,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @mediumGray: #ebebeb;
 @lightGray: #f8f8f8;
 @somewhatGray: #f2f2f2;
+@dividerGray: #e5e5e5;
 @somewhatBlue: #1b3d6d;
 
 
@@ -73,8 +74,16 @@ p {
   line-height: 21px;
 }
 
-.article p:first-of-type {
-  padding-top: 20px;
+.article {
+  p:first-of-type {
+    padding-top: 20px;
+  }
+}
+
+.article-column-wrap {
+  p:first-of-type {
+    padding-top: 0px;
+  }
 }
 
 .page-date {
@@ -177,25 +186,81 @@ hr {
   color: @charcoalGray;
 }
 
-.widget_siteorigin-panels-postloop .loop-lg .title {
-  color: @darkBlue;
-  .robotoBold;
-  font-size: 20px;
-  line-height: 26px;
-}
+.widget_siteorigin-panels-postloop {
+  .lt-big {
+    border-right: 1px solid @somewhatGray;
+    margin-bottom: 50px;
 
-.widget_siteorigin-panels-postloop .loop-lg a {
-  text-decoration: none;
-}
+    .title {
+      line-height: 45px;
+      margin-top: 15px;
+      margin-bottom: 10px;
 
-.widget_siteorigin-panels-postloop .loop-lg a:hover {
-  text-decoration: underline;
-}
+      &, a {
+        .robotoBold;
+        color: @darkBlue;
+        font-size: 33px;
+      }
+    }
+  }
 
-.widget_siteorigin-panels-postloop .media .media-heading {
-  color: @somewhatBlue;
-  .robotoBold;
-  font-size: 16px;
+  .lt-small {
+    .title {
+      &, a {
+        color: @darkBlue;
+        .robotoBold;
+        font-size: 20px;
+        line-height: 26px;
+      }
+    }
+  }
+
+  .excerpt {
+    color: @charcoalGray;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+  }
+
+  .loop-lg {
+    .title {
+      color: @darkBlue;
+      .robotoBold;
+      font-size: 20px;
+      line-height: 26px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .excerpt {
+      margin-bottom: 10px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .media {
+    .media-heading {
+      color: @somewhatBlue;
+      .robotoBold;
+      font-size: 16px;
+    }
+
+    .media-left {
+      .loop-sm-img {
+        width: 125px;
+      }
+    }
+  }
+
+  div.media:last-of-type {
+    background-color: red;
+  }
 }
 
 .widget_siteorigin-panels-postloop .media a, .widget_siteorigin-panels-postloop .lt-big .title a, .widget_siteorigin-panels-postloop .lt-small .title a {
@@ -204,12 +269,6 @@ hr {
 
 .widget_siteorigin-panels-postloop .media a:hover, .widget_siteorigin-panels-postloop .lt-big .title a:hover, .widget_siteorigin-panels-postloop .lt-small .title a:hover {
   text-decoration: underline;
-}
-
-.widget_siteorigin-panels-postloop .excerpt {
-  color: @charcoalGray;
-  font-family: Arial, sans-serif;
-  font-size: 15px;
 }
 
 .widget_siteorigin-panels-postloop .pubdate, .widget_siteorigin-panels-postloop .media-body time {
@@ -226,7 +285,8 @@ hr {
 }
 
 .category-more {
-  border-top: 1px solid @somewhatGray;
+  border-top: 1px solid @dividerGray;
+  padding-top: 10px;
 
   a {
     color: @somewhatBlue;
@@ -240,36 +300,6 @@ hr {
 
 aside h3.widget-title:first-of-type {
   margin-top: 0;
-}
-
-.widget_siteorigin-panels-postloop {
-  .lt-big {
-    border-right: 1px solid @somewhatGray;
-    margin-bottom: 50px;
-
-    .title {
-      line-height: 45px;
-
-      &, a {
-        .robotoBold;
-        color: @darkBlue;
-        font-size: 33px;
-      }
-    }
-  }
-}
-
-.widget_siteorigin-panels-postloop {
-  .lt-small {
-    .title {
-      &, a {
-        color: @darkBlue;
-        .robotoBold;
-        font-size: 20px;
-        line-height: 26px;
-      }
-    }
-  }
 }
 
 .widget_cj_tag_links .list-group-item a {
@@ -289,17 +319,22 @@ aside h3.widget-title:first-of-type {
   color: @darkBlue;
 }
 
-.widget_cj_related_links_widget .list-group-item {
-  border-top: 1px solid @somewhatGray;
+.widget_cj_related_links_widget {
+  .list-group-item {
+    border-top: 1px solid @somewhatGray;
+    padding: 15px;
+  }
+
+  .list-group-item:first-child {
+    border-top: none;
+  }
 }
 
-.widget_cj_related_links_widget .list-group-item:first-child {
-  border-top: none;
-}
-
-.widget_neatly-recent-posts .media {
-  padding-left: 15px;
-  padding-right: 15px;
+.widget_neatly-recent-posts {
+  .media {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 .category {
@@ -307,6 +342,7 @@ aside h3.widget-title:first-of-type {
     font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 33px;
+    margin-top: 0px;
   }
 
   h2 {
@@ -319,6 +355,22 @@ aside h3.widget-title:first-of-type {
   .post-item {
     border-top: 1px solid @somewhatGray;
     padding: 30px 0 30px 0;
+
+    .post-title {
+      margin-bottom: 10px;
+      margin-top: 0px;
+    }
+
+    .post-date {
+      color: @charcoalGray;
+      font-size: 13px;
+    }
+
+    .post-excerpt {
+      font-size: 15px;
+      color: @lighterBlack;
+      margin-bottom: 10px;
+    }
   }
 
   a {
@@ -333,23 +385,11 @@ aside h3.widget-title:first-of-type {
     text-decoration: underline;
   }
 
-  .post-date {
-    color: @charcoalGray;
-    font-size: 13px;
-  }
-
-  .post-excerpt {
-    font-size: 15px;
-    color: @lighterBlack;
-  }
-
   .post-item:first-of-type {
     border-top: none;
   }
 
-  .row {
-    padding-bottom: 20px;
-  }
+  .row {}
 }
 
 .postItemPadding {
@@ -447,24 +487,64 @@ aside h3.widget-title {
 
 .uci-in-the-news {
   padding: 0 15px 0 15px;
+
+  .textwidget {
+    p {
+      a {
+        text-decoration: none;
+        color: @somewhatBlue;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.wp-caption {
+  .wp-caption-text {
+    .caption;
+    margin-top: -12px !important;
+  }
 }
 
 @media (max-width: @screen-sm-min) {
-  .category .post-item {
-    border-top: none;
-  }
+  .category {
+    .post-item {
+      border-top: none;
 
-  .category .post-item {
-    img {
-      .postItemPadding;
-    }
+      img {
+        .postItemPadding;
+      }
 
-    .post-meta {
-      .postItemPadding;
+      .post-meta {
+        .postItemPadding;
+      }
+
+      .post-title {
+        margin-top: 15px;
+      }
     }
   }
 
   .lt-big {
     border-right: none;
+  }
+
+  .article-column-wrap {
+    p:first-of-type {
+      padding-top: 20px;
+    }
+
+    .portrait-header {
+      width: 100%;
+    }
+  }
+
+  .article {
+    .page-content {
+      clear: left;
+    }
   }
 }
