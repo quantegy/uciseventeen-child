@@ -20,8 +20,9 @@ require_once 'vendor/autoload.php';
 
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
-    wp_enqueue_script('match-heights', get_stylesheet_directory_uri() . '/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js', ['jquery'], false, true);
-    wp_enqueue_script('image-preload', get_stylesheet_directory_uri(). '/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js', ['jquery'], false, true);
+    wp_enqueue_script('match-heights', get_stylesheet_directory_uri() . '/assets/js/jquery-match-height/dist/jquery.matchHeight-min.js', ['jquery'], false, false);
+    wp_enqueue_script('image-preload', get_stylesheet_directory_uri(). '/assets/js/jquery.imgpreload/dist/jquery.imgpreload.min.js', ['jquery'], false, false);
+    wp_enqueue_script('uci-height-matching', get_stylesheet_directory_uri() . '/assets/js/uciseventeen/height-matching.js', ['match-heights'], false, false);
 
 	wp_enqueue_style('uciseventeen-child', get_stylesheet_directory_uri() . '/assets/theme-styles/uciseventeen.css');
 	wp_enqueue_style('bootstrap3-uci', get_stylesheet_directory_uri() . '/assets/theme-styles/Bootstrap3-UCI-theme/css/bootstrap3-uci.css');

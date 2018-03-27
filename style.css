@@ -57,6 +57,9 @@ p {
 .article p:first-of-type {
   padding-top: 20px;
 }
+.article-column-wrap p:first-of-type {
+  padding-top: 0px;
+}
 .page-date {
   font-size: 13px;
   border-top: 1px solid #ebebeb;
@@ -138,12 +141,46 @@ hr {
   font-size: 13px;
   color: #606568;
 }
+.widget_siteorigin-panels-postloop .lt-big {
+  border-right: 1px solid #f2f2f2;
+  margin-bottom: 50px;
+}
+.widget_siteorigin-panels-postloop .lt-big .title {
+  line-height: 45px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.widget_siteorigin-panels-postloop .lt-big .title,
+.widget_siteorigin-panels-postloop .lt-big .title a {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  color: #1d3e6b;
+  font-size: 33px;
+}
+.widget_siteorigin-panels-postloop .lt-small .title,
+.widget_siteorigin-panels-postloop .lt-small .title a {
+  color: #1d3e6b;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+}
+.widget_siteorigin-panels-postloop .excerpt {
+  color: #606568;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
 .widget_siteorigin-panels-postloop .loop-lg .title {
   color: #1d3e6b;
   font-family: 'Roboto Slab', serif;
   font-weight: bold;
   font-size: 20px;
   line-height: 26px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.widget_siteorigin-panels-postloop .loop-lg .excerpt {
+  margin-bottom: 10px;
 }
 .widget_siteorigin-panels-postloop .loop-lg a {
   text-decoration: none;
@@ -157,6 +194,12 @@ hr {
   font-weight: bold;
   font-size: 16px;
 }
+.widget_siteorigin-panels-postloop .media .media-left .loop-sm-img {
+  width: 125px;
+}
+.widget_siteorigin-panels-postloop div.media:last-of-type {
+  background-color: red;
+}
 .widget_siteorigin-panels-postloop .media a,
 .widget_siteorigin-panels-postloop .lt-big .title a,
 .widget_siteorigin-panels-postloop .lt-small .title a {
@@ -166,11 +209,6 @@ hr {
 .widget_siteorigin-panels-postloop .lt-big .title a:hover,
 .widget_siteorigin-panels-postloop .lt-small .title a:hover {
   text-decoration: underline;
-}
-.widget_siteorigin-panels-postloop .excerpt {
-  color: #606568;
-  font-family: Arial, sans-serif;
-  font-size: 15px;
 }
 .widget_siteorigin-panels-postloop .pubdate,
 .widget_siteorigin-panels-postloop .media-body time {
@@ -188,7 +226,8 @@ hr {
   font-weight: bold;
 }
 .category-more {
-  border-top: 1px solid #f2f2f2;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 10px;
 }
 .category-more a {
   color: #1b3d6d;
@@ -199,28 +238,6 @@ hr {
 }
 aside h3.widget-title:first-of-type {
   margin-top: 0;
-}
-.widget_siteorigin-panels-postloop .lt-big {
-  border-right: 1px solid #f2f2f2;
-  margin-bottom: 50px;
-}
-.widget_siteorigin-panels-postloop .lt-big .title {
-  line-height: 45px;
-}
-.widget_siteorigin-panels-postloop .lt-big .title,
-.widget_siteorigin-panels-postloop .lt-big .title a {
-  font-family: 'Roboto Slab', serif;
-  font-weight: bold;
-  color: #1d3e6b;
-  font-size: 33px;
-}
-.widget_siteorigin-panels-postloop .lt-small .title,
-.widget_siteorigin-panels-postloop .lt-small .title a {
-  color: #1d3e6b;
-  font-family: 'Roboto Slab', serif;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 26px;
 }
 .widget_cj_tag_links .list-group-item a {
   text-decoration: none;
@@ -237,6 +254,7 @@ aside h3.widget-title:first-of-type {
 }
 .widget_cj_related_links_widget .list-group-item {
   border-top: 1px solid #f2f2f2;
+  padding: 15px;
 }
 .widget_cj_related_links_widget .list-group-item:first-child {
   border-top: none;
@@ -249,6 +267,7 @@ aside h3.widget-title:first-of-type {
   font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 33px;
+  margin-top: 0px;
 }
 .category h2 {
   font-family: 'Roboto Slab', serif;
@@ -261,6 +280,19 @@ aside h3.widget-title:first-of-type {
   border-top: 1px solid #f2f2f2;
   padding: 30px 0 30px 0;
 }
+.category .post-item .post-title {
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+.category .post-item .post-date {
+  color: #606568;
+  font-size: 13px;
+}
+.category .post-item .post-excerpt {
+  font-size: 15px;
+  color: #363636;
+  margin-bottom: 10px;
+}
 .category a {
   text-decoration: none;
 }
@@ -270,19 +302,8 @@ aside h3.widget-title:first-of-type {
 .category a:hover {
   text-decoration: underline;
 }
-.category .post-date {
-  color: #606568;
-  font-size: 13px;
-}
-.category .post-excerpt {
-  font-size: 15px;
-  color: #363636;
-}
 .category .post-item:first-of-type {
   border-top: none;
-}
-.category .row {
-  padding-bottom: 20px;
 }
 .postItemPadding {
   padding-left: 15px;
@@ -365,6 +386,21 @@ aside h3.widget-title {
 .uci-in-the-news {
   padding: 0 15px 0 15px;
 }
+.uci-in-the-news .textwidget p a {
+  text-decoration: none;
+  color: #1b3d6d;
+}
+.uci-in-the-news .textwidget p a:hover {
+  text-decoration: underline;
+}
+.wp-caption .wp-caption-text {
+  font-size: 13px;
+  color: #363636;
+  line-height: 18px;
+  padding: 12px 15px;
+  background-color: #f8f8f8;
+  margin-top: -12px !important;
+}
 @media (max-width: 768px) {
   .category .post-item {
     border-top: none;
@@ -377,7 +413,19 @@ aside h3.widget-title {
     padding-left: 15px;
     padding-right: 15px;
   }
+  .category .post-item .post-title {
+    margin-top: 15px;
+  }
   .lt-big {
     border-right: none;
+  }
+  .article-column-wrap p:first-of-type {
+    padding-top: 20px;
+  }
+  .article-column-wrap .portrait-header {
+    width: 100%;
+  }
+  .article .page-content {
+    clear: left;
   }
 }

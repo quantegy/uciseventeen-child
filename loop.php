@@ -23,7 +23,7 @@
             <div class="media">
                 <div class="media-left">
                     <a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail('medium_large', ['class' => 'media-object', 'style' => 'width: 100px;']); ?>
+						<?php the_post_thumbnail('medium_large', ['class' => 'media-object loop-sm-img']); ?>
                     </a>
                 </div>
                 <div class="media-body">
