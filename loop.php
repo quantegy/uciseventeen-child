@@ -40,7 +40,7 @@
 		$catName = get_category($catID)->name;
 		?>
         <div class="category-more">
-            <a href="<?php echo get_category_link($catID); ?>">View more <?php echo $catName; ?></a>
+            <a href="<?php echo get_category_link($catID); ?>">View more <?php echo $catName; ?> <i aria-hidden="true" class="fa fa-angle-right"></i></a>
         </div>
         <?php endif; ?>
 <?php endif;
