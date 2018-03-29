@@ -26,7 +26,7 @@
 		            <?php echo wp_oembed_get(uciseventeen_get_featured_video_url()); ?>
                 <?php endif; ?>
 
-                <p><?php the_content(); ?></p>
+                <div class="page-content"><?php the_content(); ?></div>
             </div>
             <aside class="col-md-12">
                 <?php get_sidebar(); ?>
