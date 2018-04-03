@@ -43,7 +43,7 @@ class News extends \WP_Widget {
 		}
 	}
 
-	public function authorFilter($authors) {
+	public function authorFilter($authors, $args, $instance) {
 		$widgetTitle = apply_filters('widget_title', empty($instance['title']) ? __('Story by') : $instance['title'], $instance, self::getInstance()->id_base);
 		$containerOpen = (empty($args['container_open'])) ? '<ul>' : $args['container_open'];
 		$containerClose = (empty($args['container_close'])) ? '</ul>' : $args['container_close'];
@@ -77,7 +77,7 @@ class News extends \WP_Widget {
 		return $html;
     }
 
-    public function contactsFilter($contacts) {
+    public function contactsFilter($contacts, $args, $instance) {
 	    $widgetTitle = apply_filters('widget_title', empty($instance['title']) ? __('Contacts') : $instance['title'], $instance, self::getInstance()->id_base);
 	    $containerOpen = (empty($args['container_open'])) ? '<ul>' : $args['container_open'];
 	    $containerClose = (empty($args['container_close'])) ? '</ul>' : $args['container_close'];

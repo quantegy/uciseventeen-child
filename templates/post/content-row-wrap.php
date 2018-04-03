@@ -30,7 +30,7 @@
 
                 <div class="page-content"><?php the_content(); ?></div>
             </div>
-            <aside class="col-md-12">
+            <aside class="col-md-12 sidebar-wrap">
                 <?php get_sidebar(); ?>
             </aside>
         </div>
