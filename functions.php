@@ -127,6 +127,7 @@ function uciseventeen_child_widgets_init() {
 add_filter('simple_fields_contacts_filter', 'testing', 9, 3);
 function testing($contacts, $args, $instance) {
     if(!empty($contacts)) {
+        echo '<div class="widget">';
 	    if(!empty($instance['title'])) {
 		    echo '<h3 class="widget-title">' . $instance['title'] . '</h3>';
 	    }
@@ -144,6 +145,7 @@ function testing($contacts, $args, $instance) {
         }
 
         echo '</ul>';
+        echo '</div>';
     }
 }
 

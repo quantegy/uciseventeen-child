@@ -145,7 +145,8 @@ hr {
   border-top: 1px solid #f2f2f2;
   padding-top: 20px;
 }
-.widget_neatly-recent-posts .media:first-of-type {
+.widget_neatly-recent-posts .media:first-of-type,
+.widget_neatly-recent-posts .no-media:first-of-type {
   border-top: none;
 }
 .widget_neatly-recent-posts .media-object {
