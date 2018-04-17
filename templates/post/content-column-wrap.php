@@ -31,7 +31,7 @@
                 <div class="page-content"><?php the_content(); ?></div>
             </div>
             <aside class="col-md-4 sidebar-wrap">
-                <?php get_sidebar(); ?>
+	            <?php get_sidebar(); ?>
             </aside>
         </div>
     </div>
