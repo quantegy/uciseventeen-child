@@ -1,4 +1,4 @@
-<main>
+<ain>
     <div class="container">
         <div class="row">
             <div class="col-md-8 article article-column-full">
@@ -29,8 +29,8 @@
                 <?php the_content(); ?>
             </div>
             <aside class="col-md-4 sidebar-full">
-				<?php get_sidebar(); ?>
+	            <?php get_sidebar(); ?>
             </aside>
         </div>
     </div>
-</main>
+</ain>
