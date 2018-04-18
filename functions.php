@@ -34,6 +34,16 @@ add_action('wp_print_styles', 'uciseventeen_print_styles');
 function uciseventeen_print_styles() {
     wp_dequeue_style('bootstrap-uci');
     wp_deregister_style('bootstrap-uci');
+
+    /**
+     * if Sharify plugin is active remove it's queued CSS files
+     */
+    if(is_plugin_active('sharify/sharify.php')) {
+	    wp_dequeue_style( 'sharify' );
+	    wp_deregister_style( 'sharify' );
+	    wp_dequeue_style( 'sharify-icon' );
+	    wp_deregister_style( 'sharify-icon' );
+    }
 }
 
 /**
@@ -157,7 +167,17 @@ function uciseventeen_excerpt_more($more) {
 add_filter('excerpt_more', 'uciseventeen_excerpt_more');
 
 add_filter('post_thumbnail_html', function($html, $post_id, $post_thumbnail_id, $size, $attr) {
+	/**
+	 * if no featured image use placeholder image for non post pages
+	 */
+    if(empty($post_thumbnail_id)) {
+        $imgId = get_theme_mod(\UCI\Wordpress\Customize\Identity\Settings::PLACEHOLDER_SETTING, '');
 
+        $img = wp_get_attachment_image($imgId, $size, false, $attr);
+        $img = uciseventeen_cleanup_image_element($img);
+
+        return $img;
+    }
 
     $alt_img = uciseventeen_alt_image($html, $post_id, $post_thumbnail_id, $size, $attr);
     if($alt_img !== false) {
@@ -190,20 +210,32 @@ function uciseventeen_alt_image($html, $post_id, $post_thumbnail_id, $size, $att
 	if(!empty($alt_img_id)) {
 		$img_tag = wp_get_attachment_image($alt_img_id, $size, false, $attr);
 
-		/**
-		 * need to get rid of WP's hard-coded width and height attributes FFS
-		 */
-		$dom = new DOMDocument();
-		$dom->formatOutput = true;
-		$dom->loadHTML($img_tag);
-		$imgEle = $dom->getElementsByTagName('img')->item(0);
-		$imgEle->removeAttribute('width');
-		$imgEle->removeAttribute('height');
-
-		$html = $dom->saveHTML();
+        $html = uciseventeen_cleanup_image_element($img_tag);
 	} else {
 	    return false;
     }
+
+	return $html;
+}
+
+/**
+ * Remove width and height attributes from Wordpress generated img tags
+ * @param string $img_tag HTML output
+ *
+ * @return string
+ */
+function uciseventeen_cleanup_image_element($img_tag) {
+	/**
+	 * need to get rid of WP's hard-coded width and height attributes FFS
+	 */
+	$dom = new DOMDocument();
+	$dom->formatOutput = true;
+	$dom->loadHTML($img_tag);
+	$imgEle = $dom->getElementsByTagName('img')->item(0);
+	$imgEle->removeAttribute('width');
+	$imgEle->removeAttribute('height');
+
+	$html = $dom->saveHTML();
 
 	return $html;
 }
@@ -299,6 +331,13 @@ add_filter('admin_init', function() {
 
         echo '<textarea style="width: 70%; height: 200px;" id="' . GTM_SCRIPT_OPTION_NAME . '" name="' . GTM_SCRIPT_OPTION_NAME . '">' . $value . '</textarea>';
     }, 'general');
+});
+
+/**
+ * custom placeholder thumbnail for empty featured images
+ */
+add_action('customize_register', function($wp_customize) {
+    $pis = new \UCI\Wordpress\Customize\Identity\Settings($wp_customize);
 });
 
 /*function uciseventeen_so_before_content($stuff) {
