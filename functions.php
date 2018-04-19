@@ -173,10 +173,14 @@ add_filter('post_thumbnail_html', function($html, $post_id, $post_thumbnail_id, 
     if(empty($post_thumbnail_id)) {
         $imgId = get_theme_mod(\UCI\Wordpress\Customize\Identity\Settings::PLACEHOLDER_SETTING, '');
 
-        $img = wp_get_attachment_image($imgId, $size, false, $attr);
-        $img = uciseventeen_cleanup_image_element($img);
+        if(!empty($imgId)) {
+	        $img = wp_get_attachment_image( $imgId, $size, FALSE, $attr );
+	        $img = uciseventeen_cleanup_image_element( $img );
 
-        return $img;
+	        return $img;
+        } else {
+            return '';
+        }
     }
 
     $alt_img = uciseventeen_alt_image($html, $post_id, $post_thumbnail_id, $size, $attr);
