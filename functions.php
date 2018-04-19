@@ -231,9 +231,14 @@ function uciseventeen_cleanup_image_element($img_tag) {
 	$dom = new DOMDocument();
 	$dom->formatOutput = true;
 	$dom->loadHTML($img_tag);
-	$imgEle = $dom->getElementsByTagName('img')->item(0);
-	$imgEle->removeAttribute('width');
-	$imgEle->removeAttribute('height');
+
+	try {
+		$imgEle = $dom->getElementsByTagName( 'img' )->item( 0 );
+		$imgEle->removeAttribute( 'width' );
+		$imgEle->removeAttribute( 'height' );
+	} catch(Exception $e) {
+
+    }
 
 	$html = $dom->saveHTML();
 
