@@ -1,0 +1,46 @@
+.simple-heading {
+	color: @darkBlue;
+	font-size: @font-size-h4;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+
+.highlighted-heading {
+	background: linear-gradient(-60deg, rgba(255,210,0,0), rgba(255,210,0,0) 30px, rgba(255,210,0,1) 31px);
+	color: #000;
+	display: inline-block;
+	font-size: @font-size-h4;
+	font-weight: bold;
+	margin: 0;
+	padding: (@grid-gutter-width / 6) (@grid-gutter-width / 2);
+	padding-right: 45px;
+	text-transform: uppercase;
+	@media screen and (min-width: 781px) {
+		margin: 0 0 0 -(@grid-gutter-width / 2);
+	}
+}
+
+.subtle-heading {
+	background-color: @lightGray;
+	border-left: 3px solid @brand-secondary;
+	color: @darkBlue;
+	font-size: 15px;
+	line-height: 15px;
+	font-weight: bold;
+	padding: (@grid-gutter-width / 3) 12px;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+	margin-top: 0;
+}
+
+.banded {
+	background-color: @lightGray;
+	padding: 45px 0;
+}
+
+.headline {
+	color: @darkBlue;
+	font-family: 'Roboto Slab', serif;
+	font-weight: bold;
+}
