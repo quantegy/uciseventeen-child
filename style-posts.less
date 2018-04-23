@@ -1,0 +1,147 @@
+.post {
+	.page-heading {
+		.headline;
+		font-size: @font-size-h2;
+		line-height: 45px;
+	}
+	.page-subheadline {
+		color: @charcoalGray;
+		font-size: @font-size-h4;
+		font-style: italic;
+		font-weight: normal;
+		line-height: 26px;
+		margin: 15px 0;
+	}
+	.page-date {
+		border-top: 1px solid @gray-lighter;
+		margin-bottom: 8px;
+		padding-top: 8px;
+	}
+	.caption {
+		background-color: @lightGray;
+		font-size: 13px;
+		line-height: 18px;
+		margin-bottom: 15px;
+		padding: 8px 10px;
+	}
+	.page-content {
+		ul, ol {
+			display: table;
+		}
+	}
+	.sharify-container {
+		margin-top: 30px;
+		margin-bottom: 25px;
+		position: relative;
+		&:before {
+			content: "Share ";
+			position: absolute;
+			margin-top: 4px;
+			font-weight: bold;
+		}
+		ul {
+			display: inline-block;
+			list-style: none;
+			margin: 0;
+			margin-left: 60px;
+			padding: 0;
+		}
+		li {
+			float: left;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			text-align: center;
+			a {
+				border-bottom-right-radius: 0 !important;
+				border-top-right-radius: 0 !important;
+				display: inline-block;
+				padding: 2px 0;
+				width: 60px;
+				&:hover,
+				&:focus {
+					opacity: .8;
+				}
+			}
+			
+			.sharify-icon {
+				color: #fff;
+				font-family: "FontAwesome";
+			}
+			&.sharify-btn-twitter a {
+				background-color: #55acee;
+				.sharify-icon:before {
+					content: "\f099";
+				}
+			}
+			&.sharify-btn-facebook a {
+				background-color: #3a5795;
+				.sharify-icon:before {
+					content: "\f09a";
+				}
+			}
+			&.sharify-btn-reddit a {
+				background-color: #ff4500;
+				.sharify-icon:before {
+					content: "\f281";
+				}
+			}
+			&.sharify-btn-gplus a {
+				background-color: #dd4b39;
+				.sharify-icon:before {
+					content: "\f0d5";
+				}
+			}
+			&.sharify-btn-linkedin a {
+				background-color: #0077b5;
+				.sharify-icon:before {
+					content: "\f0e1";
+				}
+			}
+			&.sharify-btn-email a {
+				background-color: @darkBlue;
+				.sharify-icon:before {
+					content: "\f003";
+				}
+			}
+			
+		}
+		.sharify-icon {
+			
+		}
+		.sharify-title,
+		.sharify-count {
+			display: none;
+		}
+	}
+	
+	.article-row-wrap {
+		.portrait-header {
+			float: right;
+			margin-right: 0;
+			margin-left: 20px;
+		}
+		@media screen and (min-width: @screen-md-min) {
+			.page-heading,
+			.page-subheadline {
+				width: 80%;
+			}
+			.portrait-header {
+				width: 33.3333%;
+			}
+		}
+	}
+	.article-row-full {
+		.container-fluid {
+			padding-left: 0;
+			padding-right: 0;
+			img {
+				width: 100%;
+			}
+		}
+		.page-heading,
+		.page-subheadline,
+		.page-date {
+			text-align: center;
+		}
+	}
+}
