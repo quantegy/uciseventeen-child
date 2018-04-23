@@ -24,8 +24,10 @@
             <?php elseif(has_post_thumbnail() && uciseventeen_has_featured_video()): ?>
 	            <?php echo wp_oembed_get(uciseventeen_get_featured_video_url()); ?>
             <?php endif; ?>
+                <?php the_content(); ?>
+            </div>
+	        <?php uciseventeen_related_posts(); ?>
 
-            <?php the_content(); ?>
         </div>
         <aside class="col-md-4 sidebar-right">
             <?php get_sidebar(); ?>

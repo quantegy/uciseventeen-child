@@ -14,9 +14,7 @@ if(uciseventeen_has_featured_video()) {
 	<?php if(has_post_thumbnail()): ?>
 	<div class="col-md-4">
 		<a href="<?php the_permalink(); ?>">
-			<?php
-			the_post_thumbnail('large', array('class' => implode(' ', $classes)));
-			?>
+			<?php the_post_thumbnail('large', array('class' => implode(' ', $classes))); ?>
 		</a>
 	</div>
 	<?php endif; ?>

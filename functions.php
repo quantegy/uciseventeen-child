@@ -349,6 +349,75 @@ add_action('customize_register', function($wp_customize) {
     $pis = new \UCI\Wordpress\Customize\Identity\Settings($wp_customize);
 });
 
+/**
+ * Add related posts to bottom of posts
+ */
+function uciseventeen_related_posts($limit = 5, $orderby = 'rand') {
+    echo apply_filters('uciseventeen_related_posts_filter', $limit, $orderby, [
+            'before_posts' => '<aside>',
+            'after_posts' => '</aside>'
+    ]);
+}
+
+add_filter('uciseventeen_related_posts_filter', 'uciseventeen_related_posts_handler', 10, 2);
+function uciseventeen_related_posts_handler($limit = 5, $orderby = 'rand', $args = []) {
+    $btps = isset($args['before_posts']) ? $args['before_posts'] : '<div>';
+    $atps = isset($args['after_posts']) ? $args['after_posts'] : '</div>';
+    $bti = isset($args['before_item']) ? $args['before_item'] : '<div>';
+	$ati = isset($args['after_item']) ? $args['after_item'] : '</div>';
+	$label = isset($args['label']) ? $args['label'] : __('Related Posts', 'uciseventeen');
+	$btl = isset($args['before_label']) ? $args['before_label'] : '<h3>';
+	$atl = isset($args['after_label']) ? $args['after_label'] : '</h3>';
+	$btt = isset($args['before_title']) ? $args['before_title'] : '';
+	$att = isset($args['after_title']) ? $args['after_title'] : '';
+	$btd = isset($args['before_date']) ? $args['before_date'] : '';
+	$atd = isset($args['after_date']) ? $args['after_date'] : '';
+
+    $html = '';
+
+    $postId = get_queried_object_id();
+
+    $tags = wp_get_post_tags($postId, 'post_tag', ['fields' => 'ids']);
+
+    $queryArgs = [
+            'post__not_in' => array($postId),
+            'posts_per_page' => $limit,
+            'ignore_sticky_posts' => 1,
+            'orderby' => $orderby,
+            'tax_query' => [
+                    'taxonomy' => 'post_tag',
+                    'terms' => $tags
+            ]
+    ];
+
+    $query = new WP_Query($queryArgs);
+
+    if($query->have_posts()) {
+	    $html .= $btps;
+        $html .= $btl . $label . $atl;
+        while($query->have_posts()) {
+            $query->the_post();
+
+            $html .= $bti;
+            $html .= '<a href="' . get_the_permalink() . '">' . get_the_post_thumbnail(null,'large', ['class' => 'img-responsive']) . '</a>';
+            $html .= the_title($btt, $att, false);
+            $html .= the_date(null, $btd, $atd, false);
+            $html .= $ati;
+        }
+        $html .= $atps;
+    }
+
+    wp_reset_postdata();
+
+    return $html;
+}
+
+function debug($d) {
+    print '<pre>';
+    var_dump($d);
+    print '</pre>';
+}
+
 /*function uciseventeen_so_before_content($stuff) {
     return $stuff;
 }
