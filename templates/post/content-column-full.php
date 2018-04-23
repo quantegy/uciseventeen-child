@@ -28,6 +28,7 @@
 
                 <?php the_content(); ?>
             </div>
+	        <?php uciseventeen_related_posts(); ?>
             <aside class="col-md-4 sidebar-full">
 	            <?php get_sidebar(); ?>
             </aside>

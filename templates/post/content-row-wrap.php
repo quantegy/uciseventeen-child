@@ -30,6 +30,7 @@
 
                 <div class="page-content"><?php the_content(); ?></div>
             </div>
+            <?php uciseventeen_related_posts(); ?>
             <aside class="col-md-12 sidebar-wrap">
                 <?php get_sidebar(); ?>
             </aside>
