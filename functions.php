@@ -354,8 +354,16 @@ add_action('customize_register', function($wp_customize) {
  */
 function uciseventeen_related_posts($limit = 5, $orderby = 'rand') {
     echo apply_filters('uciseventeen_related_posts_filter', $limit, $orderby, [
-            'before_posts' => '<aside class="related-posts">',
-            'after_posts' => '</aside>'
+            'before_posts' => '<div class="related-posts">',
+            'after_posts' => '</div>',
+            'before_item' => '<div class="media">',
+            'after_item' => '</div>',
+            'before_label' => '<h2>',
+            'after_label' => '</h2>',
+            'before_title' => '<p class="media-heading">',
+            'after_title' => '</p>',
+            'before_date' => '<p><time>',
+            'after_time' => '</time></p>'
     ]);
 }
 
