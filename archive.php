@@ -22,7 +22,7 @@ get_header();
                     <div>No stories found.</div>
 				<?php endif; ?>
             </div>
-            <aside class="col-md-4">
+            <aside class="col-md-4 archive-sidebar">
                 <?php get_sidebar(); ?>
             </aside>
         </div>
