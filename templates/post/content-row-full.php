@@ -34,8 +34,10 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-8 col-md-offset-2">
 				<div class="page-content"><?php the_content(); ?></div>
-				<?php uciseventeen_related_posts(); ?>
 			</div>
+		</div>
+		<?php uciseventeen_related_posts(); ?>
+		<div class="row">
 	        <aside class="col-xs-12 sidebar-bottom">
 	            <?php get_sidebar(); ?>
 	        </aside>
