@@ -407,9 +407,9 @@ function uciseventeen_related_posts_handler($limit = 5, $orderby = 'rand', $args
             $query->the_post();
 
             $html .= $bti;
-            $html .= '<a href="' . get_the_permalink() . '">' . get_the_post_thumbnail(null,'large', ['class' => 'img-responsive']) . '</a>';
-            $html .= the_title($btt, $att, false);
-            $html .= the_date(null, $btd, $atd, false);
+            $html .= '<div class="media-left"><a href="' . get_the_permalink() . '">' . get_the_post_thumbnail(null,'large', ['class' => 'img-responsive']) . '</a></div>';
+            $html .= '<div class="media-body"><a href="' . get_the_permalink() . '">' . the_title($btt, $att, false) . '</a>';
+            $html .= the_date(null, $btd, $atd, false) . '</div>';
             $html .= $ati;
         }
         $html .= $atps;

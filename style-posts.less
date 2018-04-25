@@ -114,6 +114,83 @@
 		}
 	}
 	
+	.related-posts {
+		.clearfix;
+		margin-bottom: 30px;
+		.media:nth-of-type(5) {
+			display: none;
+		}
+		h2 {
+			.subtle-heading;
+			margin-bottom: 0;
+		}
+		p {
+			margin-bottom: 0;
+		}
+		time {
+			color: @charcoalGray;
+			font-size: 13px;
+		}
+		.media {
+			border-bottom: 1px solid @lightGray;
+			margin-top: 20px;
+			padding-bottom: 20px;
+			img {
+				width: 100%;
+			}
+			.media-heading {
+				.headline;
+				margin-bottom: 10px;
+				line-height: 20px;
+			}
+			.media-left {
+				padding-right: 15px;
+				width: 40%;
+			}
+		}
+		@media screen and (min-width: @screen-md-min) {
+			img {
+				margin-bottom: 10px;
+			}
+			.media {
+				border-bottom: none;
+				.media-left {
+					display: block;
+					padding: 0;
+					width: 100%;
+				}
+			}
+		}
+	}
+	
+	
+	
+	.article-row-full {
+		.container-fluid {
+			padding-left: 0;
+			padding-right: 0;
+			img {
+				width: 100%;
+			}
+		}
+		.page-heading,
+		.page-subheadline,
+		.page-date {
+			text-align: center;
+		}
+		.related-posts {
+			@media screen and (min-width: @screen-md-min) {
+				margin-bottom: 60px;
+			}
+			.media {
+				.make-md-column(3);
+				&:nth-of-type(4) {
+					border-bottom: none;
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
 	.article-row-wrap {
 		.portrait-header {
 			float: right;
@@ -129,19 +206,46 @@
 				width: 33.3333%;
 			}
 		}
-	}
-	.article-row-full {
-		.container-fluid {
-			padding-left: 0;
-			padding-right: 0;
-			img {
-				width: 100%;
+		.related-posts {
+			@media screen and (min-width: @screen-md-min) {
+				margin-bottom: 60px;
+			}
+			.media {
+				.make-md-column(3);
+				&:nth-of-type(4) {
+					border-bottom: none;
+					padding-bottom: 0;
+				}
 			}
 		}
-		.page-heading,
-		.page-subheadline,
-		.page-date {
-			text-align: center;
+	}
+	.article-column-full {
+		.related-posts {
+			.media {
+				.make-md-column(4);
+				&:nth-of-type(3) {
+					border-bottom: none;
+					padding-bottom: 0;
+				}
+				&:nth-of-type(4) {
+					display: none;
+				}
+			}
 		}
 	}
+	.article-column-wrap {
+		.related-posts {
+			.media {
+				.make-md-column(4);
+				&:nth-of-type(3) {
+					border-bottom: none;
+					padding-bottom: 0;
+				}
+				&:nth-of-type(4) {
+					display: none;
+				}
+			}
+		}
+	}
+	
 }
