@@ -12,7 +12,7 @@
             <div data-mh="loop-lg-match" class="loop-lg">
                 <div>
                     <a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail('large', ['class' => 'img-responsive', 'data-mh' => 'loop-lg-img']); ?>
+						<?php the_post_thumbnail('thumbnail_2to3', ['class' => 'img-responsive', 'data-mh' => 'loop-lg-img']); ?>
 						<?php the_title('<div class="title">', '</div>'); ?>
                     </a>
                 </div>
@@ -23,7 +23,7 @@
             <div class="media">
                 <div class="media-left">
                     <a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail('medium_large', ['class' => 'media-object loop-sm-img']); ?>
+						<?php the_post_thumbnail('thumbnail_2to3', ['class' => 'media-object loop-sm-img']); ?>
                     </a>
                 </div>
                 <div class="media-body">
