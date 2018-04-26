@@ -352,7 +352,7 @@ add_action('customize_register', function($wp_customize) {
 /**
  * Add related posts to bottom of posts
  */
-function uciseventeen_related_posts($limit = 5, $orderby = 'rand') {
+function uciseventeen_related_posts($limit = 4, $orderby = 'rand') {
     echo apply_filters('uciseventeen_related_posts_filter', $limit, $orderby, [
             'before_posts' => '<div class="related-posts">',
             'after_posts' => '</div>',
@@ -418,6 +418,35 @@ function uciseventeen_related_posts_handler($limit = 5, $orderby = 'rand', $args
     wp_reset_postdata();
 
     return $html;
+}
+
+/**
+ * Removing unwanted widgets from SiteOrigin
+ * @param $widgets
+ *
+ * @return mixed
+ */
+function uciseventeen_remove_unwanted_widgets($widgets) {
+    unset($widgets['SiteOrigin_Widget_PostCarousel_Widget']);
+
+    return $widgets;
+}
+add_filter('siteorigin_panels_widgets', 'uciseventeen_remove_unwanted_widgets', 11);
+
+/**
+ * adding crop thumbnail plugin to handle 2:3 aspect ratio,
+ * so i'm removing all unwanted image sizes from other widgets/plugins
+ */
+add_action('init', function() {
+	remove_image_size('sow-carousel-default');
+}, 11);
+
+add_action('init', 'uciseventeen_thumbnail_init');
+function uciseventeen_thumbnail_init() {
+	if(is_plugin_active('crop-thumbnails/crop-thumbnails.php')) {
+		// 2:3 aspect ratio
+		add_image_size('thumbnail_2to3', 720, 480, true);
+	}
 }
 
 function debug($d) {

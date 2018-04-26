@@ -11,7 +11,7 @@
         <div class="media">
             <div class="media-left">
                 <a href="<?php the_permalink(); ?>">
-					<?php the_post_thumbnail( 'medium_large', [
+					<?php the_post_thumbnail( 'thumbnail_2to3', [
 						'class' => 'media-object',
 						'style' => 'width: 100px;',
 					] ); ?>
