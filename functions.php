@@ -444,8 +444,8 @@ add_action('init', function() {
 add_action('init', 'uciseventeen_thumbnail_init');
 function uciseventeen_thumbnail_init() {
 	if(is_plugin_active('crop-thumbnails/crop-thumbnails.php')) {
-		// 2:3 aspect ratio
-		add_image_size('thumbnail_2to3', 720, 480, true);
+		// 3:2 aspect ratio
+		add_image_size('thumbnail_3to2', 720, 480, true);
 	}
 }
 

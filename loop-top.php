@@ -13,7 +13,7 @@
             <div class="lt-big">
                 <div class="thumb">
                     <a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail( 'thumbnail_2to3', [ 'class' => 'img-responsive' ] ); ?>
+						<?php the_post_thumbnail( 'thumbnail_3to2', [ 'class' => 'img-responsive' ] ); ?>
                     </a>
                 </div>
 				<?php the_title( '<div class="title"><a href="' . get_the_permalink() . '">', '</a></div>' ); ?>
@@ -26,7 +26,7 @@
             <div class="col-md-6 lt-small">
                     <div class="thumb">
                         <a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail( 'thumbnail_2to3', [ 'class' => 'img-responsive' ] ); ?>
+							<?php the_post_thumbnail( 'thumbnail_3to2', [ 'class' => 'img-responsive' ] ); ?>
                         </a>
                     </div>
 					<?php the_title( '<div class="title"><a href="' . get_the_permalink() . '">', '</a></div>' ) ?>
