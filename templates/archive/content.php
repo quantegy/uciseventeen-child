@@ -23,6 +23,6 @@ if(uciseventeen_has_featured_video()) {
 			<a href="<?php the_permalink(); ?>"><?php the_title('<h2>', '</h2>'); ?></a>
 		</div>
         <div class="post-meta post-excerpt"><?php echo get_the_excerpt(); ?></div>
-		<?php the_date('F j, Y', '<div class="post-meta post-date">', '</div>'); ?>
+        <div class="post-meta post-date"><?php echo get_the_date('F j, Y'); ?></div>
 	</div>
 </div>
