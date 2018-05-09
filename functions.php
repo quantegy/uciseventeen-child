@@ -385,21 +385,18 @@ function uciseventeen_related_posts_handler($limit = 5, $orderby = 'rand', $args
 
     $postId = get_queried_object_id();
 
-    $tags = wp_get_post_tags($postId, 'post_tag', ['fields' => 'ids']);
+    $tags = wp_get_post_terms($postId, 'post_tag', ['fields' => 'ids']);
 
     $queryArgs = [
             'post__not_in' => array($postId),
             'posts_per_page' => $limit,
             'ignore_sticky_posts' => 1,
             'orderby' => $orderby,
-            'tax_query' => [
-                    'taxonomy' => 'post_tag',
-                    'terms' => $tags
-            ]
+            'tag__in' => $tags,
+            'caller_get_posts' => 1
     ];
 
     $query = new WP_Query($queryArgs);
-
     if($query->have_posts()) {
 	    $html .= $btps;
         $html .= $btl . $label . $atl;
@@ -415,7 +412,8 @@ function uciseventeen_related_posts_handler($limit = 5, $orderby = 'rand', $args
         $html .= $atps;
     }
 
-    wp_reset_postdata();
+    wp_reset_query();
+
 
     return $html;
 }
@@ -447,24 +445,6 @@ function uciseventeen_thumbnail_init() {
 		// 3:2 aspect ratio
 		add_image_size('thumbnail_3to2', 720, 480, true);
 	}
-}
-
-add_filter('wp_title', 'uciseventeen_wp_title', 10, 2);
-function uciseventeen_wp_title($title, $sep) {
-    global $post, $page, $paged;
-
-    if(is_single() || is_page() && (!is_home() && !is_front_page())) {
-        $_title[] = get_the_title($post);
-    }
-
-    if(is_category()) {
-        $_title[] = get_the_archive_title();
-    }
-
-	$_title[] = get_bloginfo('name');
-    $_title[] = 'UCI';
-
-	return implode($sep, $_title);
 }
 
 function debug($d) {
