@@ -179,7 +179,10 @@ add_filter('post_thumbnail_html', function($html, $post_id, $post_thumbnail_id, 
 
 	        return $img;
         } else {
-            return '';
+            /*
+             * if no placeholder image is supplied do not output anything
+             */
+	        return '';
         }
     }
 
