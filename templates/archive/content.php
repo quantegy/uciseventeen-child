@@ -11,13 +11,11 @@ if(uciseventeen_has_featured_video()) {
 }
 ?>
 <div class="row post-item">
-	<?php if(has_post_thumbnail()): ?>
 	<div class="col-md-4">
 		<a href="<?php the_permalink(); ?>">
 			<?php the_post_thumbnail('medium_large', array('class' => implode(' ', $classes))); ?>
 		</a>
 	</div>
-	<?php endif; ?>
 	<div class="col-md-8">
 		<div class="post-meta post-title">
 			<a href="<?php the_permalink(); ?>"><?php the_title('<h2>', '</h2>'); ?></a>
