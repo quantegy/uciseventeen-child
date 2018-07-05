@@ -450,6 +450,17 @@ function uciseventeen_thumbnail_init() {
 	}
 }
 
+/**
+ * replacing the default featured image with 3to2 ratio
+ * because social media platforms cannot process portrait dimensions
+ */
+add_filter('fb_og_image', 'uci_fb_og_image');
+function uci_fb_og_image($i) {
+    $i = get_the_post_thumbnail_url(null, 'thumbnail_3to2');
+
+    return $i;
+}
+
 function debug($d) {
     print '<pre>';
     var_dump($d);
