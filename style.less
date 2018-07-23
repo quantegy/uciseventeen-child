@@ -97,6 +97,51 @@ h6, .h6 {
 	}
 }
 
+@media print {
+	.post {
+		.no-print, .no-print * {
+			display: none !important;
+		}
+
+		header {
+			background-color: #0064a4 !important;
+		}
+
+		.article {
+			width: 100% !important;
+		}
+
+		.sharify-container, .related-posts, #search {
+			display: none;
+		}
+
+		#wordmark > a, footer {
+			visibility: hidden;
+		}
+
+		#wordmark > a > img {
+			visibility: visible;
+		}
+
+		footer {
+			.container {
+				.row:first-child {
+					overflow: hidden !important;
+					height: 0px !important;
+				}
+			}
+
+			.text-right {
+				a {
+					small {
+						visibility: visible;
+					}
+				}
+			}
+		}
+	}
+}
+
 .page-date,
 .pubdate,
 .rp-date,

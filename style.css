@@ -151,6 +151,37 @@ a.more-link > .fa,
     overflow: inherit;
   }
 }
+@media print {
+  .post .no-print,
+  .post .no-print * {
+    display: none !important;
+  }
+  .post header {
+    background-color: #0064a4 !important;
+  }
+  .post .article {
+    width: 100% !important;
+  }
+  .post .sharify-container,
+  .post .related-posts,
+  .post #search {
+    display: none;
+  }
+  .post #wordmark > a,
+  .post footer {
+    visibility: hidden;
+  }
+  .post #wordmark > a > img {
+    visibility: visible;
+  }
+  .post footer .container .row:first-child {
+    overflow: hidden !important;
+    height: 0px !important;
+  }
+  .post footer .text-right a small {
+    visibility: visible;
+  }
+}
 .page-date,
 .pubdate,
 .rp-date,
