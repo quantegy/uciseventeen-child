@@ -98,41 +98,44 @@ h6, .h6 {
 }
 
 @media print {
-	.no-print, .no-print * {
-		display: none !important;
-	}
-
-	header {
-		background-color: #0064a4 !important;
-	}
-
-	.article {
-		width: 100% !important;
-	}
-
-	.sharify-container, .related-posts, #search {
-		display: none;
-	}
-
-	#wordmark > a, footer {
-		visibility: hidden;
-	}
-
-	#wordmark > a > img {
-		visibility: visible;
-	}
-
-	footer {
-		.container {
-			.row:first-child {
-				height: 0px !important;
-			}
+	.post {
+		.no-print, .no-print * {
+			display: none !important;
 		}
 
-		.text-right {
-			a {
-				small {
-					visibility: visible;
+		header {
+			background-color: #0064a4 !important;
+		}
+
+		.article {
+			width: 100% !important;
+		}
+
+		.sharify-container, .related-posts, #search {
+			display: none;
+		}
+
+		#wordmark > a, footer {
+			visibility: hidden;
+		}
+
+		#wordmark > a > img {
+			visibility: visible;
+		}
+
+		footer {
+			.container {
+				.row:first-child {
+					overflow: hidden !important;
+					height: 0px !important;
+				}
+			}
+
+			.text-right {
+				a {
+					small {
+						visibility: visible;
+					}
 				}
 			}
 		}

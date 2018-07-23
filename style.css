@@ -152,32 +152,33 @@ a.more-link > .fa,
   }
 }
 @media print {
-  .no-print,
-  .no-print * {
+  .post .no-print,
+  .post .no-print * {
     display: none !important;
   }
-  header {
+  .post header {
     background-color: #0064a4 !important;
   }
-  .article {
+  .post .article {
     width: 100% !important;
   }
-  .sharify-container,
-  .related-posts,
-  #search {
+  .post .sharify-container,
+  .post .related-posts,
+  .post #search {
     display: none;
   }
-  #wordmark > a,
-  footer {
+  .post #wordmark > a,
+  .post footer {
     visibility: hidden;
   }
-  #wordmark > a > img {
+  .post #wordmark > a > img {
     visibility: visible;
   }
-  footer .container .row:first-child {
+  .post footer .container .row:first-child {
+    overflow: hidden !important;
     height: 0px !important;
   }
-  footer .text-right a small {
+  .post footer .text-right a small {
     visibility: visible;
   }
 }
