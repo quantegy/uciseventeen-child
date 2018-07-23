@@ -151,6 +151,36 @@ a.more-link > .fa,
     overflow: inherit;
   }
 }
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+  header {
+    background-color: #0064a4 !important;
+  }
+  .article {
+    width: 100% !important;
+  }
+  .sharify-container,
+  .related-posts,
+  #search {
+    display: none;
+  }
+  #wordmark > a,
+  footer {
+    visibility: hidden;
+  }
+  #wordmark > a > img {
+    visibility: visible;
+  }
+  footer .container .row:first-child {
+    height: 0px !important;
+  }
+  footer .text-right a small {
+    visibility: visible;
+  }
+}
 .page-date,
 .pubdate,
 .rp-date,

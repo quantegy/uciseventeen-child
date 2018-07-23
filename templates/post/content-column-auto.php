@@ -43,7 +43,7 @@
             <div class="page-content"><?php the_content(); ?></div>
             <?php uciseventeen_related_posts(); ?>
         </div>
-        <aside class="col-md-4 sidebar-right">
+        <aside class="col-md-4 sidebar-right no-print">
             <?php get_sidebar(); ?>
         </aside>
     </div>

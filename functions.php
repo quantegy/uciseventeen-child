@@ -467,6 +467,27 @@ function debug($d) {
     print '</pre>';
 }
 
+/*function uciseventeen_rest_posts_by_id(WP_REST_Request $req) {
+    $postIds = $req->get_param('post_ids');
+    $postIds = explode(',', $postIds);
+
+    $posts = get_posts(array( 'post__in' => $postIds ));
+    array_walk($posts, function(&$item) {
+        $item->thumbnail = get_the_post_thumbnail_url($item->ID);
+    });
+
+    return new WP_REST_Response($posts, 200);
+}
+add_action('rest_api_init', function() {
+    register_rest_route('uci/v1', '/posts', array(
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => 'uciseventeen_rest_posts_by_id',
+            'permission_callback' => function() {
+                return true;
+            }
+    ));
+});*/
+
 /*function uciseventeen_so_before_content($stuff) {
     return $stuff;
 }
