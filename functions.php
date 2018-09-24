@@ -243,9 +243,7 @@ function uciseventeen_cleanup_image_element($img_tag) {
 		$imgEle = $dom->getElementsByTagName( 'img' )->item( 0 );
 		$imgEle->removeAttribute( 'width' );
 		$imgEle->removeAttribute( 'height' );
-	} catch(Exception $e) {
-
-    }
+	} catch(Exception $e) {}
 
 	$html = $dom->saveHTML();
 
@@ -467,26 +465,57 @@ function debug($d) {
     print '</pre>';
 }
 
-/*function uciseventeen_rest_posts_by_id(WP_REST_Request $req) {
-    $postIds = $req->get_param('post_ids');
-    $postIds = explode(',', $postIds);
+function uciseventeen_rest_mobile_posts(WP_REST_Request $req) {
+    /*$postIds = $req->get_param('post_ids');
+    $postIds = explode(',', $postIds);*/
 
-    $posts = get_posts(array( 'post__in' => $postIds ));
+    //$posts = get_posts(array( 'post__in' => $postIds ));
+    $posts = get_posts(array(
+        'meta_key' => 'mobile-featured',
+        'meta_value' => 1
+    ));
     array_walk($posts, function(&$item) {
-        $item->thumbnail = get_the_post_thumbnail_url($item->ID);
+        $item->post_content = apply_filters('the_content', $item->post_content);
+        $item->thumbnail = get_the_post_thumbnail_url($item->ID, 'thumbnail_3to2');
     });
 
     return new WP_REST_Response($posts, 200);
 }
+
+function uciseventeen_rest_mobile_search(WP_REST_Request $req) {
+    $posts = get_posts([
+            's' => $req->get_param('query'),
+            'nopaging' => false,
+            'posts_per_page' => 20
+    ]);
+
+	array_walk($posts, function(&$item) {
+		$item->post_content = apply_filters('the_content', $item->post_content);
+		$item->thumbnail = get_the_post_thumbnail_url($item->ID, 'thumbnail_3to2');
+	});
+
+	return new WP_REST_Response($posts, 200);
+}
+
 add_action('rest_api_init', function() {
-    register_rest_route('uci/v1', '/posts', array(
+    register_rest_route('uci/v1', '/posts/mobile', array(
             'methods' => WP_REST_Server::READABLE,
-            'callback' => 'uciseventeen_rest_posts_by_id',
-            'permission_callback' => function() {
-                return true;
-            }
+            'callback' => 'uciseventeen_rest_mobile_posts'
     ));
-});*/
+
+    register_rest_route('/uci/v1', "/posts/mobile/search/(?P<query>.+)", array(
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => 'uciseventeen_rest_mobile_search'
+    ));
+});
+
+function is_siteorigin_content() {
+	if(is_plugin_active('siteorigin-panels/siteorigin-panels.php') && !empty(siteorigin_panels_render())) {
+		return true;
+	}
+
+	return false;
+}
 
 /*function uciseventeen_so_before_content($stuff) {
     return $stuff;

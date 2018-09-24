@@ -21,12 +21,14 @@
 	                )); ?>
 	                <?php the_date(); ?>
 	            </div>
+                <?php if(!is_siteorigin_content()): ?>
 	            <?php if(has_post_thumbnail() && !uciseventeen_has_featured_video()): ?>
 	            <?php the_post_thumbnail('full', array('class' => 'img-responsive')); ?>
 	            <div class="caption"><?php the_post_thumbnail_caption(); ?></div>
 	            <?php elseif(has_post_thumbnail() && uciseventeen_has_featured_video()): ?>
 		            <?php echo wp_oembed_get(uciseventeen_get_featured_video_url()); ?>
 	            <?php endif; ?>
+                <?php endif; ?>
 			</div>
 		</div>
 	</div>
