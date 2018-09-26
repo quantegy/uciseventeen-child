@@ -500,12 +500,18 @@ function uciseventeen_rest_mobile_search(WP_REST_Request $req) {
 add_action('rest_api_init', function() {
     register_rest_route('uci/v1', '/posts/mobile', array(
             'methods' => WP_REST_Server::READABLE,
-            'callback' => 'uciseventeen_rest_mobile_posts'
+            'callback' => 'uciseventeen_rest_mobile_posts',
+            'permission_callback' => function() {
+	            return true;
+            }
     ));
 
     register_rest_route('/uci/v1', "/posts/mobile/search/(?P<query>.+)", array(
             'methods' => WP_REST_Server::READABLE,
-            'callback' => 'uciseventeen_rest_mobile_search'
+            'callback' => 'uciseventeen_rest_mobile_search',
+            'permission_callback' => function() {
+                return true;
+            }
     ));
 });
 
