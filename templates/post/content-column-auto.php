@@ -40,7 +40,7 @@
 	            <?php echo wp_oembed_get(uciseventeen_get_featured_video_url()); ?>
             <?php endif; ?>
 
-            <div class="page-content"><?php the_content(); ?></div>
+            <div class="page-content clearfix"><?php the_content(); ?></div>
             <?php uciseventeen_related_posts(); ?>
         </div>
         <aside class="col-md-4 sidebar-right no-print">

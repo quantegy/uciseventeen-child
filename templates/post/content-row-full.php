@@ -35,7 +35,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-md-8 col-md-offset-2">
-				<div class="page-content"><?php the_content(); ?></div>
+				<div class="page-content clearfix"><?php the_content(); ?></div>
 			</div>
 		</div>
 		<?php uciseventeen_related_posts(); ?>
