@@ -474,10 +474,7 @@ function uciseventeen_rest_mobile_posts(WP_REST_Request $req) {
         'meta_key' => 'mobile-featured',
         'meta_value' => 1
     ));
-    array_walk($posts, function(&$item) {
-        $item->post_content = apply_filters('the_content', $item->post_content);
-        $item->thumbnail = get_the_post_thumbnail_url($item->ID, 'thumbnail_3to2');
-    });
+    array_walk($posts, 'formatPostJSON');
 
     return new WP_REST_Response($posts, 200);
 }
@@ -489,10 +486,7 @@ function uciseventeen_rest_mobile_search(WP_REST_Request $req) {
             'posts_per_page' => 20
     ]);
 
-	array_walk($posts, function(&$item) {
-		$item->post_content = apply_filters('the_content', $item->post_content);
-		$item->thumbnail = get_the_post_thumbnail_url($item->ID, 'thumbnail_3to2');
-	});
+	array_walk($posts, 'formatPostJSON');
 
 	return new WP_REST_Response($posts, 200);
 }
@@ -508,6 +502,12 @@ add_action('rest_api_init', function() {
             'callback' => 'uciseventeen_rest_mobile_search'
     ));
 });
+
+function formatPostJSON(&$item) {
+	$item->post_content = apply_filters('the_content', $item->post_content);
+	$item->thumbnail = get_the_post_thumbnail_url($item->ID, 'thumbnail_3to2');
+	$item->coordinates = get_post_meta($item->ID, 'mobile-lat-long', true);
+}
 
 function is_siteorigin_content() {
 	if(is_plugin_active('siteorigin-panels/siteorigin-panels.php') && !empty(siteorigin_panels_render())) {
