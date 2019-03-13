@@ -491,13 +491,32 @@ function uciseventeen_rest_mobile_search(WP_REST_Request $req) {
 	return new WP_REST_Response($posts, 200);
 }
 
+function uciseventeen_rest_mobile_geo(WP_REST_Request $r) {
+    $posts = get_posts([
+            'post_type' => 'post',
+            'post_status' => 'publish',
+            'meta_key' => 'mobile-lat-long',
+            'meta_value' => '',
+            'meta_compare' => '!='
+    ]);
+
+    array_walk($posts, 'formatPostJSON');
+
+    return new WP_REST_Response($posts, 200);
+}
+
 add_action('rest_api_init', function() {
+	register_rest_route('uci/v1', '/posts/mobile/geo', [
+		'methods' => WP_REST_Server::READABLE,
+		'callback' => 'uciseventeen_rest_mobile_geo'
+	]);
+
     register_rest_route('uci/v1', '/posts/mobile', array(
             'methods' => WP_REST_Server::READABLE,
             'callback' => 'uciseventeen_rest_mobile_posts'
     ));
 
-    register_rest_route('/uci/v1', "/posts/mobile/search/(?P<query>.+)", array(
+    register_rest_route('uci/v1', "/posts/mobile/search/(?P<query>.+)", array(
             'methods' => WP_REST_Server::READABLE,
             'callback' => 'uciseventeen_rest_mobile_search'
     ));
