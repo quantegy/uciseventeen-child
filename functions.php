@@ -536,6 +536,26 @@ function is_siteorigin_content() {
 	return false;
 }
 
+/**
+ * WP Multisite does not allow non-admin users to embed
+ * unfiltered HTML. We are making an exception for Editor role.
+ *
+ * @param $caps
+ * @param $cap
+ * @param $user_id
+ *
+ * @return array
+ */
+function uciseventeen_unfiltered_html_for_editors($caps, $cap, $user_id) {
+    if($cap === 'unfiltered_html' && user_can($user_id, 'editor')) {
+        $caps = array('unfiltered_html');
+    }
+
+    return $caps;
+
+}
+add_filter('map_meta_cap', 'uciseventeen_unfiltered_html_for_editors', 1, 3);
+
 /*function uciseventeen_so_before_content($stuff) {
     return $stuff;
 }
