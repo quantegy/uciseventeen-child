@@ -546,7 +546,7 @@ function is_siteorigin_content() {
  *
  * @return array
  */
-function uciseventeen_unfiltered_html_for_editors($caps, $cap, $user_id) {
+/*function uciseventeen_unfiltered_html_for_editors($caps, $cap, $user_id) {
     if($cap === 'unfiltered_html' && user_can($user_id, 'editor')) {
         $caps = array('unfiltered_html');
     }
@@ -554,7 +554,7 @@ function uciseventeen_unfiltered_html_for_editors($caps, $cap, $user_id) {
     return $caps;
 
 }
-//add_filter('map_meta_cap', 'uciseventeen_unfiltered_html_for_editors', 1, 3);
+add_filter('map_meta_cap', 'uciseventeen_unfiltered_html_for_editors', 1, 3);*/
 
 /*function uciseventeen_so_before_content($stuff) {
     return $stuff;
